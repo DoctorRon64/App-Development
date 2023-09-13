@@ -13,36 +13,37 @@
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Gegroet mijn App gebruiker"
                 HeightRequest="200"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center" 
+            />
 
             <Label
                 Text="Tamagotchi YEAH :3"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+                FontSize="52"
+                FontFamily="VanillaRavioli"
+                HorizontalOptions="Center" 
+            />
 
             <Label
                 Text="Gegroet mijn App gebruiker"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Gegroet mijn App gebruiker"
                 FontSize="18"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center" 
+            />
 
-            <HorizontalStackLayout>
-                
+            <HorizontalStackLayout HorizontalOptions="Center">
                 <Button
-                    x:Name="ToFoodHall"
-                    
                     Text="Go to FoodHall"
                     Clicked="ToFoodHallFunction"
                     HorizontalOptions="Center"
                 />
+                
                 <Button
                     Text="Go to SlurpJuice"
                     Clicked="ToSlurpHallFunction"
                     Margin="20,0,0,0"
                 />
-
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

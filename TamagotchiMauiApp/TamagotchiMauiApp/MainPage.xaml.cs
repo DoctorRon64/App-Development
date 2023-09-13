@@ -2,8 +2,6 @@
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-
 	public MainPage()
 	{
 		InitializeComponent();
@@ -11,23 +9,13 @@ public partial class MainPage : ContentPage
 
 	private void ToFoodHallFunction(object sender, EventArgs e)
 	{
-		count++;
-
-		if (count == 1)
-		{
-			ToFoodHall.Text = $"Clicked {count} time";
-		}
-		else
-		{
-			ToFoodHall.Text = $"Clicked {count} times";
-		}
-
-		SemanticScreenReader.Announce(ToFoodHall.Text);
+		SemanticScreenReader.Default.Announce("To Food Hall");
 		Navigation.PushAsync(new FoodPage());
 	}
 
 	private void ToSlurpHallFunction(object sender, EventArgs e)
 	{
+		SemanticScreenReader.Default.Announce("To Slurp Hall");
 		Navigation.PushAsync(new SlurpPage());
 	}
 }

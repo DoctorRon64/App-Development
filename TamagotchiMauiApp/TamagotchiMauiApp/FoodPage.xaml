@@ -5,8 +5,10 @@
              Title="FoodPage">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="FoodHall"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" 
+        />
+            
     </VerticalStackLayout>
 </ContentPage>
