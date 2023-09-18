@@ -3,42 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TamagotchiMauiApp.MainPage">
 
-    <ScrollView>
+
+    <ScrollView BackgroundColor="Purple">
+
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
 
+            <Label
+                Text="Gorilla Pet"
+                FontSize="52"
+                FontFamily="DeputyJack"
+                HorizontalOptions="Center" 
+            />
+
             <Image
                 Source="dotnet_bot.png"
-                SemanticProperties.Description="Gegroet mijn App gebruiker"
                 HeightRequest="200"
                 HorizontalOptions="Center" 
             />
 
             <Label
-                Text="Tamagotchi YEAH :3"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="52"
-                FontFamily="VanillaRavioli"
-                HorizontalOptions="Center" 
-            />
-
-            <Label
                 Text="Gegroet mijn App gebruiker"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Gegroet mijn App gebruiker"
+                FontFamily="MonkeyBanana"
                 FontSize="18"
                 HorizontalOptions="Center" 
             />
 
             <HorizontalStackLayout HorizontalOptions="Center">
                 <Button
+                    x:Name="Gotofood"
                     Text="Go to FoodHall"
                     Clicked="ToFoodHallFunction"
                     HorizontalOptions="Center"
                 />
-                
+
+                <Button
+                    Text="{Binding HungerText, Mode=OneWay}"
+                    Clicked="GeefEten"
+                    HorizontalOptions="Center"
+                />
+
                 <Button
                     Text="Go to SlurpJuice"
                     Clicked="ToSlurpHallFunction"
