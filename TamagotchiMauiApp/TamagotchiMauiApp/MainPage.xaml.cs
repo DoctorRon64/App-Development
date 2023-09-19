@@ -1,49 +1,50 @@
 ﻿using Microsoft.Maui.Controls;
+using System;
 using System.ComponentModel;
 
-namespace TamagotchiMauiApp;
-public partial class MainPage : ContentPage, INotifyPropertyChanged
+namespace TamagotchiMauiApp
 {
-	public event PropertyChangedEventHandler PropertyChanged;
-	public float Hunger { get; set; } = 0.0f;
-	public string HungerText => Hunger switch
-	{
-		0.0f => "Mijn buik is lekker rond! ",
-		<= 25.0f => "O een kleine lekkere late night snack kan er wel in. ",
-		<= 50.0f => "Ah Ooooh De lunch begint eraan te komen. ",
-		<= 75.0f => "IK ZO'N ERGE HONGER!!!!! ",
-		<= 85.0f => "OMG JE ZIET MIJN BOTTEN BIJNA ZO VEEL HONGER HEB IK!!!",
-		<= 90.0f => "Ik sterf!",
-		<= 100.0f => "Dag mijn Jongen",
-		_ => throw new ArgumentException("Impossible")
-	};
-	//public string HungerTextAmount => Hunger.ToString();
+    public partial class MainPage : ContentPage, INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
 
-	public MainPage()
-	{
-		BindingContext = this;
+        public float Hunger { get; set; } = 100f;
 
-		InitializeComponent();
-	}
+        public string HungerText => Hunger switch
+        {
+            >= 100f => "Mijn buik is lekker rond! ",
+            >= 90f => "O een kleine lekkere late night snack kan er wel in. ",
+            >= 85f => "Ah Ooooh De lunch begint eraan te komen. ",
+            >= 75f => "IK ZO'N ERGE HONGER!!!!! ",
+            >= 50f => "OMG JE ZIET MIJN BOTTEN BIJNA ZO VEEL HONGER HEB IK!!!",
+            >= 25f => "HELP HELP IK STIK ZO VAN DE HONGER!!!",
+            > 0f => "IK ZOU LETTERLIJK ALLES OP ETEN VOORDAT IK STERF",
+            0f => "Ik sterf!",
+            _ => throw new Exception("Impossible")
+        };
 
-	private void ToFoodHallFunction(object sender, EventArgs e)
-	{
-		SemanticScreenReader.Default.Announce("To Food Hall");
-		Navigation.PushAsync(new FoodPage());
-	}
+        public MainPage()
+        {
+            BindingContext = this;
+            InitializeComponent();
+        }
 
-	private void ToSlurpHallFunction(object sender, EventArgs e)
-	{
-		SemanticScreenReader.Default.Announce("To Slurp Hall");
-		Navigation.PushAsync(new SlurpPage());
-	}
+        private void ToFoodHallFunction(object sender, EventArgs e)
+        {
+            SemanticScreenReader.Default.Announce("To Food Hall");
+            Navigation.PushAsync(new FoodPage());
+        }
 
-	private void GiveFood_Clicked(object sender, EventArgs e)
-	{
-		if (Hunger <= 100.0f)
-		{
-			Hunger += 1.0f;
-		}
-		HungerAmountText.Text = $"Clicked {Hunger} time";
-	}
+        private void ToSlurpHallFunction(object sender, EventArgs e)
+        {
+            SemanticScreenReader.Default.Announce("To Slurp Hall");
+            Navigation.PushAsync(new SlurpPage());
+        }
+
+        private void GiveFood_Clicked(object sender, EventArgs e)
+        {
+            Hunger -= 1f;
+            HungerAmountText.Text = $"Clicked {Hunger} time";
+        }
+    }
 }
