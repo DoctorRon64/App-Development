@@ -31,6 +31,13 @@
                 HorizontalOptions="Center" 
             />
 
+            <Label
+                x:Name="HungerAmountText"
+                Text="Number of hunger"
+                FontSize="24"
+                HorizontalOptions="Center"
+            />
+
             <HorizontalStackLayout HorizontalOptions="Center">
                 <Button
                     x:Name="Gotofood"
@@ -40,9 +47,11 @@
                 />
 
                 <Button
+                    x:Name="GiveFood"
                     Text="{Binding HungerText, Mode=OneWay}"
-                    Clicked="GeefEten"
+                    Clicked="GiveFood_Clicked"
                     HorizontalOptions="Center"
+                    Margin="20,0,0,0"
                 />
 
                 <Button
