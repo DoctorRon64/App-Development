@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
              x:Class="TamagotchiMauiApp.MainPage">
-
 
     <ScrollView BackgroundColor="Purple">
 
@@ -31,28 +31,13 @@
                 HorizontalOptions="Center" 
             />
 
-            <Label
-                x:Name="HungerAmountText"
-                Text="Number of hunger"
-                FontSize="24"
-                HorizontalOptions="Center"
-            />
-
             <HorizontalStackLayout HorizontalOptions="Center">
                 <ImageButton 
                     x:Name="Gotofood"
                     Source="button_food.png"
                     Clicked="ToFoodHallFunction"
-                    HorizontalOptions="Center"
                     HeightRequest="100"
-                />
-
-                <Button
-                    x:Name="GiveFood"
-                    Text="{Binding HungerText, Mode=OneWay}"
-                    Clicked="GiveFood_Clicked"
                     HorizontalOptions="Center"
-                    Margin="20,0,0,0"
                 />
 
                 <ImageButton 
@@ -63,6 +48,8 @@
                     Margin="20,0,0,0"
                 />
             </HorizontalStackLayout>
+
+            <tamagotchi:AmazingContentView />
 
         </VerticalStackLayout>
     </ScrollView>

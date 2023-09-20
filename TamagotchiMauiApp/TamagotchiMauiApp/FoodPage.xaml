@@ -20,6 +20,21 @@
             HeightRequest="200"
             HorizontalOptions="Center"
         />
+
+        <Label
+             x:Name="HungerAmountText"
+             Text="{Binding HungerTextAmount, Mode=OneWay}"
+             FontSize="24"
+             HorizontalOptions="Center"
+        />
+
+        <HorizontalStackLayout>
+            <Label
+                    Text="{Binding HungerText, Mode=OneWay}"
+                    HorizontalOptions="Center"
+                    Margin="20,0,0,0"
+            />
+        </HorizontalStackLayout>
     
     </VerticalStackLayout>
 </ContentPage>
