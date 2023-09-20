@@ -2,9 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
-             x:Class="TamagotchiMauiApp.MainPage">
+             x:Class="TamagotchiMauiApp.MainPage"
+             BackgroundImageSource="background_home.png"
+             >
 
-    <ScrollView BackgroundColor="Purple">
+    <ScrollView>
 
         <VerticalStackLayout
             Spacing="25"
@@ -16,6 +18,7 @@
                 FontSize="52"
                 FontFamily="DeputyJack"
                 HorizontalOptions="Center" 
+                TextColor="Black"
             />
 
             <Image
@@ -24,34 +27,13 @@
                 HorizontalOptions="Center" 
             />
 
-            <Label
-                Text="Gegroet mijn App gebruiker"
-                FontFamily="MonkeyBanana"
-                FontSize="18"
-                HorizontalOptions="Center" 
-            />
-
             <HorizontalStackLayout HorizontalOptions="Center">
-                <ImageButton 
-                    x:Name="Gotofood"
-                    Source="button_food.png"
-                    Clicked="ToFoodHallFunction"
-                    HeightRequest="100"
-                    HorizontalOptions="Center"
-                />
-
-                <ImageButton 
-                    Source="button_slurp.png"
-                    Clicked="ToSlurpHallFunction"
-                    HorizontalOptions="Center"
-                    HeightRequest="100"
-                    Margin="20,0,0,0"
-                />
+                <tamagotchi:ButtonBrowseContentView />
             </HorizontalStackLayout>
 
-            <tamagotchi:AmazingContentView />
 
         </VerticalStackLayout>
+
     </ScrollView>
 
 </ContentPage>
