@@ -39,11 +39,12 @@
             />
 
             <HorizontalStackLayout HorizontalOptions="Center">
-                <Button
+                <ImageButton 
                     x:Name="Gotofood"
-                    Text="Go to FoodHall"
+                    Source="button_food.png"
                     Clicked="ToFoodHallFunction"
                     HorizontalOptions="Center"
+                    HeightRequest="100"
                 />
 
                 <Button

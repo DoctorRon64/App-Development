@@ -17,7 +17,7 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
 		<= 100.0f => "Dag mijn Jongen",
 		_ => throw new ArgumentException("Impossible")
 	};
-	//public string HungerTextAmount => Hunger.ToString();
+	public string HungerTextAmount => Hunger.ToString();
 
 	public MainPage()
 	{
@@ -44,6 +44,6 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
 		{
 			Hunger += 1.0f;
 		}
-		HungerAmountText.Text = $"Clicked {Hunger} time";
+		//HungerAmountText.Text = $"Clicked {Hunger} time";
 	}
 }
