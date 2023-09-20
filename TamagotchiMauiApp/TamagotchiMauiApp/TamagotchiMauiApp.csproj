@@ -52,6 +52,7 @@
 	  <None Remove="Resources\Fonts\DeputyJack.ttf" />
 	  <None Remove="Resources\Fonts\MonkeyBanana.ttf" />
 	  <None Remove="Resources\Images\button_food.svg" />
+	  <None Remove="Resources\Images\button_slurp.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

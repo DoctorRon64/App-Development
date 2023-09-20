@@ -55,9 +55,11 @@
                     Margin="20,0,0,0"
                 />
 
-                <Button
-                    Text="Go to SlurpJuice"
+                <ImageButton 
+                    Source="button_slurp.png"
                     Clicked="ToSlurpHallFunction"
+                    HorizontalOptions="Center"
+                    HeightRequest="100"
                     Margin="20,0,0,0"
                 />
             </HorizontalStackLayout>
