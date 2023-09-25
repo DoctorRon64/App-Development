@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
 using System.Timers;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TamagotchiMauiApp
 {
@@ -10,52 +11,44 @@ namespace TamagotchiMauiApp
 	{
 		public CreaturePet myCreaturePet { get; set; } = new CreaturePet
 		{
-			Name = "Vincent",
-			Hunger = 0.4f,
-			Sleep = 0.4f,
+			Name = "Default Pet Name",
+			Hunger = 100f,
+			Sleep = 100f,
 		};
 
-		public string petNameText { get; set; }
+		public string petNameText { get; set; } = "Rename Your Pet";
+        private IDataStore<CreaturePet> dataStore;
 
-		public MainPage()
+        public MainPage()
 		{
 			BindingContext = this;
 			InitializeComponent();
-			Preferences.Clear();
 
-			var dataStore = DependencyService.Get<IDataStore<CreaturePet>>();
+            dataStore = DependencyService.Get<IDataStore<CreaturePet>>();
 			myCreaturePet = dataStore.ReadItem();
-			if (myCreaturePet == null)
-			{
-				myCreaturePet = new CreaturePet
-				{
-					Name = "Vincent",
-					Hunger = 0.4f,
-					Sleep = 0.6f
-				};
-			}
 
-			petNameText = $"{myCreaturePet.Name} Pet";
+            petNameText = $"{dataStore.ReadItem().Name} Pet";
 
-			/*string creatureString = JsonConvert.SerializeObject(myCreaturePet);
-            Preferences.Set("myCreature", creatureString);
-            myCreaturePet = JsonConvert.DeserializeObject<CreaturePet>(creatureString);*/
 
-			Entry entry = new Entry { Placeholder = "Enter text" };
+            Entry entry = new Entry { Placeholder = "Enter text" };
 			entry.TextChanged += OnEntryTextChanged;
 			entry.Completed += OnEntryCompleted;
 		}
-		void OnEntryTextChanged(object sender, TextChangedEventArgs e)
+
+		public void OnEntryTextChanged(object sender, TextChangedEventArgs e)
 		{
 			string oldText = e.OldTextValue;
 			string newText = e.NewTextValue;
 			string myText = entry.Text;
-		}
+        }
 
-		void OnEntryCompleted(object sender, EventArgs e)
+        void OnEntryCompleted(object sender, EventArgs e)
 		{
 			string text = ((Entry)sender).Text;
-			myCreaturePet.Name = text;
-		}
-	}
+
+            myCreaturePet.Name = text;
+            dataStore.UpdateItem(myCreaturePet);
+            petNameText = $"{dataStore.ReadItem().Name} Pet";
+        }
+    }
 }

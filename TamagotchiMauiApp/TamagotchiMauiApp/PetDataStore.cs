@@ -8,28 +8,57 @@ using System.Threading.Tasks;
 
 namespace TamagotchiMauiApp
 {
-	class PetDataStore : IDataStore<CreaturePet>
-	{
-		public CreaturePet ReadItem()
-		{
-			string currentString = Preferences.Get("MyPet", "");
-			CreaturePet item = JsonConvert.DeserializeObject<CreaturePet>(currentString);
-			return item;
-		}
+    class PetDataStore : IDataStore<CreaturePet>
+    {
+        public CreaturePet ReadItem()
+        {
+            string currentString = Preferences.Get("MyPet", "");
+            CreaturePet item = JsonConvert.DeserializeObject<CreaturePet>(currentString);
+            return item;
+        }
 
-		bool IDataStore<CreaturePet>.CreateItem(CreaturePet item)
-		{
-			throw new NotImplementedException();
-		}
+        public bool CreateItem(CreaturePet item)
+        {
+            try
+            {
+                string serializedItem = JsonConvert.SerializeObject(item);
+                Preferences.Set("MyPet", serializedItem);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error creating pet: {ex.Message}");
+                return false;
+            }
+        }
 
-		bool IDataStore<CreaturePet>.DeleteItem(CreaturePet item)
-		{
-			throw new NotImplementedException();
-		}
+        public bool DeleteItem(CreaturePet item)
+        {
+            try
+            {
+                Preferences.Remove("MyPet");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting pet: {ex.Message}");
+                return false;
+            }
+        }
 
-		bool IDataStore<CreaturePet>.UpdateItem(CreaturePet item)
-		{
-			throw new NotImplementedException();
-		}
-	}
+        public bool UpdateItem(CreaturePet item)
+        {
+            try
+            {
+                string serializedItem = JsonConvert.SerializeObject(item);
+                Preferences.Set("MyPet", serializedItem);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating pet: {ex.Message}");
+                return false;
+            }
+        }
+    }
 }
