@@ -1,11 +1,13 @@
+using Microsoft.Maui.Controls;
 namespace TamagotchiMauiApp;
 
 public partial class ButtonBrowseContentView : ContentView
 {
-	public ButtonBrowseContentView()
+    public ButtonBrowseContentView()
 	{
-		InitializeComponent();
-	}
+        InitializeComponent();
+    }
+
     private void ToFoodHallFunction(object sender, EventArgs e)
     {
         SemanticScreenReader.Default.Announce("To Food Hall");

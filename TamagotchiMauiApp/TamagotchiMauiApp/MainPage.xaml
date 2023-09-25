@@ -12,12 +12,6 @@
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-
-            <Entry x:Name="entry"
-                    Placeholder="Enter text"
-                    TextChanged="OnEntryTextChanged"
-                    Completed="OnEntryCompleted" 
-            />
             
             <Label
                 Text="{Binding petNameText, Mode=OneWay}"
@@ -26,6 +20,14 @@
                 HorizontalOptions="Center" 
                 TextColor="Black"
             />
+
+            <Entry x:Name="entry"
+                   Placeholder="Enter PetName"
+                   TextChanged="OnEntryTextChanged"
+                   Completed="OnEntryCompleted" 
+                   HorizontalOptions="Center"
+            />
+
 
             <Image
                 Source="dotnet_bot.png"
