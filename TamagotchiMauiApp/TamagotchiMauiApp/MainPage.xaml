@@ -13,8 +13,14 @@
             Padding="30,0"
             VerticalOptions="Center">
 
+            <Entry x:Name="entry"
+                    Placeholder="Enter text"
+                    TextChanged="OnEntryTextChanged"
+                    Completed="OnEntryCompleted" 
+            />
+            
             <Label
-                Text="Gorilla Pet"
+                Text="{Binding petNameText, Mode=OneWay}"
                 FontSize="52"
                 FontFamily="DeputyJack"
                 HorizontalOptions="Center" 

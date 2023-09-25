@@ -4,8 +4,8 @@ public partial class App : Application
 {
 	public App()
 	{
+		DependencyService.RegisterSingleton<IDataStore<CreaturePet>>(new PetDataStore());
 		InitializeComponent();
-
 		MainPage = new AppShell();
 	}
 	protected override void OnSleep()
