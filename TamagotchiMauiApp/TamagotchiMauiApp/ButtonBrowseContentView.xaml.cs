@@ -4,7 +4,7 @@ namespace TamagotchiMauiApp;
 public partial class ButtonBrowseContentView : ContentView
 {
     public ButtonBrowseContentView()
-	{
+    {
         InitializeComponent();
     }
 

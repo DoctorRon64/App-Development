@@ -9,15 +9,31 @@ namespace TamagotchiMauiApp
 {
 	public partial class MainPage : ContentPage, INotifyPropertyChanged
 	{
-		public CreaturePet myCreaturePet { get; set; } = new CreaturePet
+        public CreaturePet myCreaturePet { get; set; } = new CreaturePet
 		{
-			Name = "Default Pet Name",
+			Name = null,
 			Hunger = 100f,
-			Sleep = 100f,
+            Thurst = 100f,
+            Sleep = 100f,
+            SexValue = 0f,
 		};
 
-		public string petNameText { get; set; } = "Rename Your Pet";
+		public string PetNameText { get; set; } = null;
         private IDataStore<CreaturePet> dataStore;
+
+        private bool isEntryVisible;
+        public bool IsEntryVisible
+        {
+            get { return isEntryVisible; }
+            set
+            {
+                if (isEntryVisible != value)
+                {
+                    isEntryVisible = value;
+                    OnPropertyChanged(nameof(IsEntryVisible));
+                }
+            }
+        }
 
         public MainPage()
 		{
@@ -27,28 +43,30 @@ namespace TamagotchiMauiApp
             dataStore = DependencyService.Get<IDataStore<CreaturePet>>();
 			myCreaturePet = dataStore.ReadItem();
 
-            petNameText = $"{dataStore.ReadItem().Name} Pet";
+            Entry entry = new Entry { Placeholder = PetNameText };
+            entry.Completed += OnEntryCompleted;
 
+            if (myCreaturePet != null && !string.IsNullOrWhiteSpace(myCreaturePet.Name))
+            {
+                IsEntryVisible = false;
+            }
+            else
+            {
+                IsEntryVisible = true;
+            }
 
-            Entry entry = new Entry { Placeholder = "Enter text" };
-			entry.TextChanged += OnEntryTextChanged;
-			entry.Completed += OnEntryCompleted;
-		}
-
-		public void OnEntryTextChanged(object sender, TextChangedEventArgs e)
-		{
-			string oldText = e.OldTextValue;
-			string newText = e.NewTextValue;
-			string myText = entry.Text;
+            PetNameText = $"{dataStore.ReadItem().Name}";
         }
 
         void OnEntryCompleted(object sender, EventArgs e)
-		{
-			string text = ((Entry)sender).Text;
+        {
+            string text = ((Entry)sender).Text;
 
             myCreaturePet.Name = text;
             dataStore.UpdateItem(myCreaturePet);
-            petNameText = $"{dataStore.ReadItem().Name} Pet";
+            PetNameText = $"{dataStore.ReadItem().Name}";
+
+            IsEntryVisible = false;
         }
     }
 }

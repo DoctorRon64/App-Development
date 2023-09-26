@@ -10,6 +10,8 @@ namespace TamagotchiMauiApp
     {
         public string Name { get; set; }
         public float Hunger { get; set; }
+        public float Thurst { get; set; }
         public float Sleep { get; set; }
+        public float SexValue { get; set; }
     }
 }

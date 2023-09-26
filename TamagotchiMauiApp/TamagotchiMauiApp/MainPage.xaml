@@ -12,22 +12,29 @@
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-            
+
             <Label
-                Text="{Binding petNameText, Mode=OneWay}"
+                Text="PetName:"
                 FontSize="52"
                 FontFamily="DeputyJack"
                 HorizontalOptions="Center" 
                 TextColor="Black"
             />
 
-            <Entry x:Name="entry"
-                   Placeholder="Enter PetName"
-                   TextChanged="OnEntryTextChanged"
-                   Completed="OnEntryCompleted" 
-                   HorizontalOptions="Center"
+            <Label
+                Text="{Binding PetNameText, Mode=OneWay}"
+                FontSize="52"
+                FontFamily="DeputyJack"
+                HorizontalOptions="Center" 
+                TextColor="Black"
             />
 
+            <Entry
+                x:Name="PetNameEntry" 
+                Text="{Binding PetNameText}" 
+                Completed="OnEntryCompleted" 
+                IsVisible="{Binding IsEntryVisible}" 
+            />
 
             <Image
                 Source="dotnet_bot.png"

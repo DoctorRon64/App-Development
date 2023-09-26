@@ -19,44 +19,40 @@ namespace TamagotchiMauiApp
 
         public bool CreateItem(CreaturePet item)
         {
-            try
+            if (Preferences.ContainsKey("MyPet"))
             {
-                string serializedItem = JsonConvert.SerializeObject(item);
+                return false;
+            }
+            else
+            {
+                string serializedItem = JsonConvert.SerializeObject(new CreaturePet());
                 Preferences.Set("MyPet", serializedItem);
                 return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error creating pet: {ex.Message}");
-                return false;
             }
         }
 
         public bool DeleteItem(CreaturePet item)
         {
-            try
+            if (Preferences.ContainsKey("MyPet"))
             {
                 Preferences.Remove("MyPet");
                 return true;
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine($"Error deleting pet: {ex.Message}");
                 return false;
             }
         }
 
         public bool UpdateItem(CreaturePet item)
         {
-            try
+            if (Preferences.ContainsKey("MyPet"))
             {
                 string serializedItem = JsonConvert.SerializeObject(item);
                 Preferences.Set("MyPet", serializedItem);
                 return true;
-            }
-            catch (Exception ex)
+            } else
             {
-                Console.WriteLine($"Error updating pet: {ex.Message}");
                 return false;
             }
         }
