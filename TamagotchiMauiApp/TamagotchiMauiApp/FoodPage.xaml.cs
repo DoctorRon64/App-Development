@@ -26,19 +26,18 @@ public partial class FoodPage : ContentPage, INotifyPropertyChanged
 	{
 		BindingContext = this;
 		InitializeComponent();
-
-		var timer = new System.Timers.Timer()
-		{
-			Interval = 1000.0,
-			AutoReset = true,
-		};
-
-		timer.Elapsed += Timer_Elapsed;
-		timer.Start();
 	}
 
-	private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+	public void UpdateHunger(TimeSpan timeElapsed)
 	{
-		Hunger -= 1f;
+		float hungerDecrease = (float)timeElapsed.TotalSeconds;
+
+		Hunger -= hungerDecrease;
+		Console.WriteLine(Hunger);
+
+		if (Hunger < 0)
+		{
+			Hunger = 0;
+		}
 	}
 }
