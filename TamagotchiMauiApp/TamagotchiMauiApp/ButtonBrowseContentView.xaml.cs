@@ -3,26 +3,27 @@ namespace TamagotchiMauiApp;
 
 public partial class ButtonBrowseContentView : ContentView
 {
-    public ButtonBrowseContentView()
+	FoodPage foodPage = new FoodPage();
+	MainPage mainPage = new MainPage();
+	SlurpPage slurpPage = new SlurpPage();
+
+	public ButtonBrowseContentView()
     {
         InitializeComponent();
-    }
+	}
 
-    private void ToFoodHallFunction(object sender, EventArgs e)
+	private void ToFoodHallFunction(object sender, EventArgs e)
     {
-        SemanticScreenReader.Default.Announce("To Food Hall");
-        Navigation.PushAsync(new FoodPage());
+        Navigation.PushAsync(foodPage);
     }
 
     private void ToSlurpHallFunction(object sender, EventArgs e)
     {
-        SemanticScreenReader.Default.Announce("To Slurp Hall");
-        Navigation.PushAsync(new SlurpPage());
+        Navigation.PushAsync(slurpPage);
     }
 
     private void ToMainHallFunction(object sender, EventArgs e)
     {
-        SemanticScreenReader.Default.Announce("To Main Page");
-        Navigation.PushAsync(new MainPage());
+        Navigation.PushAsync(mainPage);
     }
 }

@@ -8,7 +8,7 @@
 
         <ImageButton 
                 x:Name="Gotofood"
-                Source="button_food.png"
+                Source="food_button.png"
                 Clicked="ToFoodHallFunction"
                 HeightRequest="80"
                 HorizontalOptions="Center"
@@ -16,7 +16,7 @@
         />
 
         <ImageButton
-                Source="button_home.png"
+                Source="home_button.png"
                 Clicked="ToMainHallFunction"
                 HorizontalOptions="Center"
                 HeightRequest="80"
@@ -25,7 +25,7 @@
         />
 
         <ImageButton 
-                Source="button_slurp.png"
+                Source="drink_button.png"
                 Clicked="ToSlurpHallFunction"
                 HorizontalOptions="Center"
                 HeightRequest="80"

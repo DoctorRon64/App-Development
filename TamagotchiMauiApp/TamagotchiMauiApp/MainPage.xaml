@@ -33,7 +33,7 @@
                 x:Name="PetNameEntry" 
                 Text="{Binding PetNameText}" 
                 Completed="OnEntryCompleted" 
-                IsVisible="{Binding IsEntryVisible}" 
+                IsVisible="{Binding IsEntryVisible}"
             />
 
             <Image
@@ -46,6 +46,7 @@
                 <tamagotchi:ButtonBrowseContentView />
             </HorizontalStackLayout>
 
+            <tamagotchi:PetValuesContentView />
 
         </VerticalStackLayout>
 

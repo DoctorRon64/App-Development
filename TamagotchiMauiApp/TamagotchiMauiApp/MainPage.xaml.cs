@@ -9,64 +9,63 @@ namespace TamagotchiMauiApp
 {
 	public partial class MainPage : ContentPage, INotifyPropertyChanged
 	{
-        public CreaturePet myCreaturePet { get; set; } = new CreaturePet
+        public Creature myCreaturePet { get; set; } = new Creature
 		{
-			Name = null,
-			Hunger = 100f,
-            Thurst = 100f,
-            Sleep = 100f,
-            SexValue = 0f,
+            Id = 0,
+			Name = "",
+            UserName = "",
+			Hunger = 0f,
+            Thirst = 0f,
+            Tired = 0f,
+            Boredom = 0f,
+            Loneliness = 0f,
+            Stimulated = 0f,
 		};
-
+		public bool IsEntryVisible { get; set; } = true;
 		public string PetNameText { get; set; } = null;
-        private IDataStore<CreaturePet> dataStore;
-
-        private bool isEntryVisible;
-        public bool IsEntryVisible
-        {
-            get { return isEntryVisible; }
-            set
-            {
-                if (isEntryVisible != value)
-                {
-                    isEntryVisible = value;
-                    OnPropertyChanged(nameof(IsEntryVisible));
-                }
-            }
-        }
 
         public MainPage()
 		{
 			BindingContext = this;
 			InitializeComponent();
 
-            dataStore = DependencyService.Get<IDataStore<CreaturePet>>();
-			myCreaturePet = dataStore.ReadItem();
+			PetNameText = $"{myCreaturePet.Name}";
 
-            Entry entry = new Entry { Placeholder = PetNameText };
-            entry.Completed += OnEntryCompleted;
-
-            if (myCreaturePet != null && !string.IsNullOrWhiteSpace(myCreaturePet.Name))
-            {
-                IsEntryVisible = false;
-            }
-            else
-            {
-                IsEntryVisible = true;
-            }
-
-            PetNameText = $"{dataStore.ReadItem().Name}";
-        }
+			Entry entry = new Entry { Placeholder = PetNameText };
+			entry.Completed += OnEntryCompleted;
+		}
 
         void OnEntryCompleted(object sender, EventArgs e)
         {
             string text = ((Entry)sender).Text;
 
-            myCreaturePet.Name = text;
-            dataStore.UpdateItem(myCreaturePet);
-            PetNameText = $"{dataStore.ReadItem().Name}";
+			var dataStore = DependencyService.Get<IDataStore<Creature>>();
+			myCreaturePet = CreateCreature(text, "defaultUsername");
+			var result = dataStore.CreateItem(myCreaturePet);
 
-            IsEntryVisible = false;
+			if (PetNameText == text)
+			{
+				IsEntryVisible = false;
+			}
+
+			PetNameText = $"{myCreaturePet.Name}";
         }
+
+		Creature CreateCreature(string name, string username)
+		{
+			Creature myCreaturePet = new Creature
+			{
+				Id = 0,
+				Name = name,
+				UserName = username,
+				Hunger = 0f,
+				Thirst = 0f,
+				Tired = 0f,
+				Boredom = 0f,
+				Loneliness = 0f,
+				Stimulated = 0f,
+			};
+			return myCreaturePet;
+		}
     }
 }

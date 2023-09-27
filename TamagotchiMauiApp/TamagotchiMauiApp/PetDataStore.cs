@@ -8,30 +8,27 @@ using System.Threading.Tasks;
 
 namespace TamagotchiMauiApp
 {
-    class PetDataStore : IDataStore<CreaturePet>
+    class PetDataStore : IDataStore<Creature>
     {
-        public CreaturePet ReadItem()
+        public Creature ReadItem()
         {
             string currentString = Preferences.Get("MyPet", "");
-            CreaturePet item = JsonConvert.DeserializeObject<CreaturePet>(currentString);
+            Creature item = JsonConvert.DeserializeObject<Creature>(currentString);
             return item;
         }
 
-        public bool CreateItem(CreaturePet item)
+        public Task<bool> CreateItem(Creature item)
         {
             if (Preferences.ContainsKey("MyPet"))
             {
-                return false;
+                return Task.FromResult(false);
             }
-            else
-            {
-                string serializedItem = JsonConvert.SerializeObject(new CreaturePet());
-                Preferences.Set("MyPet", serializedItem);
-                return true;
-            }
-        }
+			string serializedItem = JsonConvert.SerializeObject(new Creature());
+			Preferences.Set("MyPet", serializedItem);
+            return Task.FromResult(Preferences.ContainsKey("MyPet"));
+		}
 
-        public bool DeleteItem(CreaturePet item)
+        public bool DeleteItem(Creature item)
         {
             if (Preferences.ContainsKey("MyPet"))
             {
@@ -44,7 +41,7 @@ namespace TamagotchiMauiApp
             }
         }
 
-        public bool UpdateItem(CreaturePet item)
+        public bool UpdateItem(Creature item)
         {
             if (Preferences.ContainsKey("MyPet"))
             {

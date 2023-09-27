@@ -43,6 +43,7 @@
         <HorizontalStackLayout HorizontalOptions="Center">
             <tamagotchi:ButtonBrowseContentView />
         </HorizontalStackLayout>
-    
+
+        <tamagotchi:PetValuesContentView />
     </VerticalStackLayout>
 </ContentPage>

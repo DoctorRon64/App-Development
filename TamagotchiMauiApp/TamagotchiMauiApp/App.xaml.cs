@@ -5,7 +5,7 @@ public partial class App : Application
 
 	public App()
 	{
-		DependencyService.RegisterSingleton<IDataStore<CreaturePet>>(new PetDataStore());
+		DependencyService.RegisterSingleton<IDataStore<Creature>>(new RemoteDataStore());
 		InitializeComponent();
 		MainPage = new AppShell();
 	}

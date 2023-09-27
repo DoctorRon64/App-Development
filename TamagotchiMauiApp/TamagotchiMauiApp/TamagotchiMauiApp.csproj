@@ -52,9 +52,9 @@
 	  <None Remove="Resources\Fonts\DeputyJack.ttf" />
 	  <None Remove="Resources\Fonts\MonkeyBanana.ttf" />
 	  <None Remove="Resources\Images\background_home.svg" />
-	  <None Remove="Resources\Images\button_food.svg" />
-	  <None Remove="Resources\Images\button_home.svg" />
-	  <None Remove="Resources\Images\button_slurp.svg" />
+	  <None Remove="Resources\Images\drink_button.svg" />
+	  <None Remove="Resources\Images\food_button.svg" />
+	  <None Remove="Resources\Images\home_button.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -65,6 +65,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="ButtonBrowseContentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PetValuesContentView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
