@@ -51,7 +51,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\DeputyJack.ttf" />
 	  <None Remove="Resources\Fonts\MonkeyBanana.ttf" />
-	  <None Remove="Resources\Images\background_home.svg" />
+	  <None Remove="Resources\Images\Bg_Home.svg" />
 	  <None Remove="Resources\Images\drink_button.svg" />
 	  <None Remove="Resources\Images\food_button.svg" />
 	  <None Remove="Resources\Images\home_button.svg" />

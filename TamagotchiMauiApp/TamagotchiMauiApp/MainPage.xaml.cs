@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
+using System.Net;
 using System.Timers;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -28,41 +29,48 @@ namespace TamagotchiMauiApp
         {
             BindingContext = this;
             InitializeComponent();
-
-            InitializePageAsync();
         }
 
-
-        public async void InitializePageAsync()
-		{
+        protected override async void OnAppearing()
+        {
 			var dataStore = DependencyService.Get<IDataStore<Creature>>();
 			myCreaturePet = await dataStore.ReadItem();
 			
 			if (myCreaturePet != null )
 			{
 				IsEntryVisible = false;
+				IsEntryVisible = false;
+				IsEntryVisible = false;
                 PetNameText = $"{myCreaturePet.Name}";
-            } else
+            } 
+			else
 			{
 				IsEntryVisible = true;
 			}
 
             Entry entry = new Entry { Placeholder = PetNameText };
 			entry.Completed += OnEntryCompleted;
-		}
+
+            OnPropertyChanged(nameof(myCreaturePet));
+            OnPropertyChanged(nameof(IsEntryVisible));
+            OnPropertyChanged(nameof(PetNameText));
+        }
 
         void OnEntryCompleted(object sender, EventArgs e)
         {
             string text = ((Entry)sender).Text;
 
-			var dataStore = DependencyService.Get<IDataStore<Creature>>();
-			myCreaturePet = CreateCreature(text, "defaultUsername");
-			var result = dataStore.CreateItem(myCreaturePet);
+            var dataStore = DependencyService.Get<IDataStore<Creature>>();
+            string computerName = Dns.GetHostName();
+            myCreaturePet = CreateCreature(text, computerName);
+            var result = dataStore.CreateItem(myCreaturePet);
 
-			PetNameText = $"{myCreaturePet.Name}";
+            IsEntryVisible = false;
+            PetNameText = $"{myCreaturePet.Name}";
         }
 
-		Creature CreateCreature(string name, string username)
+
+        Creature CreateCreature(string name, string username)
 		{
 			Creature myCreaturePet = new Creature
 			{
@@ -78,5 +86,15 @@ namespace TamagotchiMauiApp
 			};
 			return myCreaturePet;
 		}
+
+        void ClearPetData(object sender, EventArgs e)
+        {
+            var dataStore = DependencyService.Get<IDataStore<Creature>>();
+            var result = dataStore.DeleteItem(myCreaturePet);
+
+            PetNameText = null;
+            IsEntryVisible = true;
+        }
+
     }
 }

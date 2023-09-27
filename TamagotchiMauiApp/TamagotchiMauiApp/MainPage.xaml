@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
              x:Class="TamagotchiMauiApp.MainPage"
-             BackgroundImageSource="background_home.png"
+             BackgroundImageSource="bg_home.png"
              >
 
     <ScrollView>
@@ -26,11 +26,15 @@
                 FontSize="52"
                 FontFamily="DeputyJack"
                 HorizontalOptions="Center" 
-                TextColor="Black"
+                TextColor="white"
             />
 
             <Entry
-                x:Name="PetNameEntry" 
+                x:Name="PetNameEntry"
+                Placeholder="Enter Your PET name Here"
+                TextColor="Black"
+                BackgroundColor="LightGray"
+                MaxLength="30"
                 Text="{Binding PetNameText}" 
                 Completed="OnEntryCompleted" 
                 IsVisible="{Binding IsEntryVisible}"
@@ -45,6 +49,13 @@
             <HorizontalStackLayout HorizontalOptions="Center">
                 <tamagotchi:ButtonBrowseContentView />
             </HorizontalStackLayout>
+
+            <Button 
+                Text="Click to Erease your Pet from the dataBase"
+                Clicked="ClearPetData"
+                HeightRequest="20"
+                WidthRequest="20"
+            />
 
             <tamagotchi:PetValuesContentView />
 
