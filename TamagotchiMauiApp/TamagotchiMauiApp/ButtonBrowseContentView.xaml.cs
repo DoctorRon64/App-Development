@@ -27,4 +27,14 @@ public partial class ButtonBrowseContentView : ContentView
     {
         Navigation.PushAsync(new SexPage());
     }
+
+    private void ToSleepHallFunction(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new SleepPage());
+    }
+
+    private void ToArcadeHallFunction(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new BoredPage());
+    }
 }

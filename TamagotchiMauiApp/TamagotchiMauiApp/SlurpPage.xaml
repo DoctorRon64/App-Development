@@ -3,15 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
              x:Class="TamagotchiMauiApp.SlurpPage"
-             BackgroundColor="Orange"
+             BackgroundColor="LightBlue"
              >
 
-    <VerticalStackLayout VerticalOptions="Center">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
         <Label
                 Text="Slurping Hall"
                 FontSize="52"
                 FontFamily="DeputyJack"
-                HorizontalOptions="Center" 
+                HorizontalOptions="Center"
+                TextColor="Black"
         />
 
         <Image
@@ -20,13 +21,7 @@
                 HorizontalOptions="Center" 
         />
 
-        <Label 
-            Text="Welcome to SLURPING"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" 
-        />
-        
-        <HorizontalStackLayout HorizontalOptions="Center">
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" >
             <tamagotchi:ButtonBrowseContentView />
         </HorizontalStackLayout>
 

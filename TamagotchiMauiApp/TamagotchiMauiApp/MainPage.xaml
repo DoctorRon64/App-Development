@@ -11,7 +11,7 @@
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Center">
+            VerticalOptions="CenterAndExpand">
 
             <Label
                 Text="PetName:"
@@ -34,6 +34,7 @@
                 Placeholder="Enter Your PET name Here"
                 TextColor="Black"
                 BackgroundColor="LightGray"
+                WidthRequest="500"
                 MaxLength="30"
                 Text="{Binding PetNameText}" 
                 Completed="OnEntryCompleted" 
@@ -50,13 +51,15 @@
                 <tamagotchi:ButtonBrowseContentView />
             </HorizontalStackLayout>
 
-            <Button 
-                Text="Click to Erease your Pet from the dataBase"
+            <ImageButton
+                Source="delete_button.png"
                 Clicked="ClearPetData"
-                HeightRequest="20"
-                WidthRequest="20"
+                HorizontalOptions="Center"
+                HeightRequest="80"
+                WidthRequest="80"
+                Aspect="AspectFit"
             />
-
+            
             <tamagotchi:PetValuesContentView />
 
         </VerticalStackLayout>

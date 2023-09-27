@@ -27,6 +27,11 @@ namespace TamagotchiMauiApp
 
         public async Task<bool> DeleteItem(Creature item)
         {
+            if (item == null)
+            {
+                return false;
+            }
+
             var response = await httpClient.DeleteAsync($"https://tamagotchi.hku.nl/api/Creatures/{item.Id}");
 
             return response.IsSuccessStatusCode;

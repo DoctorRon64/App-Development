@@ -52,10 +52,13 @@
 	  <None Remove="Resources\Fonts\DeputyJack.ttf" />
 	  <None Remove="Resources\Fonts\MonkeyBanana.ttf" />
 	  <None Remove="Resources\Images\Bg_Home.svg" />
+	  <None Remove="Resources\Images\bored_button.svg" />
+	  <None Remove="Resources\Images\delete_button.svg" />
 	  <None Remove="Resources\Images\drink_button.svg" />
 	  <None Remove="Resources\Images\food_button.svg" />
 	  <None Remove="Resources\Images\home_button.svg" />
 	  <None Remove="Resources\Images\sex_button.svg" />
+	  <None Remove="Resources\Images\sleep_button.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -65,6 +68,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="BoredPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ButtonBrowseContentView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -72,6 +78,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="SexPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="SleepPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
