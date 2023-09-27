@@ -33,5 +33,14 @@
                 Aspect="AspectFit"
         />
 
+        <ImageButton 
+                Source="sex_button.png"
+                Clicked="ToSexHallFunction"
+                HorizontalOptions="Center"
+                HeightRequest="80"
+                Margin="20,0,0,0"
+                Aspect="AspectFit"
+        />
+
     </HorizontalStackLayout>
 </ContentView>
