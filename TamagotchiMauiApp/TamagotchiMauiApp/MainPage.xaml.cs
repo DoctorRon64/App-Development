@@ -25,13 +25,29 @@ namespace TamagotchiMauiApp
 		public string PetNameText { get; set; } = null;
 
         public MainPage()
+        {
+            BindingContext = this;
+            InitializeComponent();
+
+            InitializePageAsync();
+        }
+
+
+        public async void InitializePageAsync()
 		{
-			BindingContext = this;
-			InitializeComponent();
+			var dataStore = DependencyService.Get<IDataStore<Creature>>();
+			myCreaturePet = await dataStore.ReadItem();
+			
+			if (myCreaturePet != null )
+			{
+				IsEntryVisible = false;
+                PetNameText = $"{myCreaturePet.Name}";
+            } else
+			{
+				IsEntryVisible = true;
+			}
 
-			PetNameText = $"{myCreaturePet.Name}";
-
-			Entry entry = new Entry { Placeholder = PetNameText };
+            Entry entry = new Entry { Placeholder = PetNameText };
 			entry.Completed += OnEntryCompleted;
 		}
 
@@ -42,11 +58,6 @@ namespace TamagotchiMauiApp
 			var dataStore = DependencyService.Get<IDataStore<Creature>>();
 			myCreaturePet = CreateCreature(text, "defaultUsername");
 			var result = dataStore.CreateItem(myCreaturePet);
-
-			if (PetNameText == text)
-			{
-				IsEntryVisible = false;
-			}
 
 			PetNameText = $"{myCreaturePet.Name}";
         }

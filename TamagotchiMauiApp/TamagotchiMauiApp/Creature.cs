@@ -16,6 +16,6 @@ namespace TamagotchiMauiApp
         public float Tired { get; set; }
         public float Boredom { get; set; }
         public float Loneliness { get; set; }
-        public float Stimulated { get; set;}
+        public float Stimulated { get; set; }
 	}
 }

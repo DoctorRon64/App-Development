@@ -10,11 +10,11 @@ namespace TamagotchiMauiApp
 {
     class PetDataStore : IDataStore<Creature>
     {
-        public Creature ReadItem()
+        public Task<Creature> ReadItem()
         {
             string currentString = Preferences.Get("MyPet", "");
             Creature item = JsonConvert.DeserializeObject<Creature>(currentString);
-            return item;
+            return Task.FromResult(item);
         }
 
         public Task<bool> CreateItem(Creature item)
@@ -28,29 +28,30 @@ namespace TamagotchiMauiApp
             return Task.FromResult(Preferences.ContainsKey("MyPet"));
 		}
 
-        public bool DeleteItem(Creature item)
+        public Task<bool> DeleteItem(Creature item)
         {
             if (Preferences.ContainsKey("MyPet"))
             {
                 Preferences.Remove("MyPet");
-                return true;
+                return Task.FromResult(true);
             }
             else
             {
-                return false;
+                return Task.FromResult(false);
             }
         }
 
-        public bool UpdateItem(Creature item)
+        public Task<bool> UpdateItem(Creature item)
         {
             if (Preferences.ContainsKey("MyPet"))
             {
                 string serializedItem = JsonConvert.SerializeObject(item);
                 Preferences.Set("MyPet", serializedItem);
-                return true;
-            } else
+                return Task.FromResult(true);
+            }
+            else
             {
-                return false;
+                return Task.FromResult(false);
             }
         }
     }

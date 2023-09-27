@@ -3,10 +3,6 @@ namespace TamagotchiMauiApp;
 
 public partial class ButtonBrowseContentView : ContentView
 {
-	FoodPage foodPage = new FoodPage();
-	MainPage mainPage = new MainPage();
-	SlurpPage slurpPage = new SlurpPage();
-
 	public ButtonBrowseContentView()
     {
         InitializeComponent();
@@ -14,16 +10,21 @@ public partial class ButtonBrowseContentView : ContentView
 
 	private void ToFoodHallFunction(object sender, EventArgs e)
     {
-        Navigation.PushAsync(foodPage);
+        Navigation.PushAsync(new FoodPage());
     }
 
     private void ToSlurpHallFunction(object sender, EventArgs e)
     {
-        Navigation.PushAsync(slurpPage);
+        Navigation.PushAsync(new SlurpPage());
     }
 
     private void ToMainHallFunction(object sender, EventArgs e)
     {
-        Navigation.PushAsync(mainPage);
+        Navigation.PushAsync(new MainPage());
+    }
+
+    private void ToSexHallFunction(object sender , EventArgs e)
+    {
+        Navigation.PushAsync(new SexPage());
     }
 }
