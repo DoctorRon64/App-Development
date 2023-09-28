@@ -8,11 +8,12 @@
 
     <ScrollView>
 
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="CenterAndExpand">
-
+        <FlexLayout 
+            Direction="Column"
+            AlignItems="Center"
+            JustifyContent="SpaceEvenly"
+            >
+            
             <Label
                 Text="PetName:"
                 FontSize="52"
@@ -39,6 +40,8 @@
                 Text="{Binding PetNameText}" 
                 Completed="OnEntryCompleted" 
                 IsVisible="{Binding IsEntryVisible}"
+                
+                Grid.Column="2"
             />
 
             <Image
@@ -47,9 +50,7 @@
                 HorizontalOptions="Center" 
             />
 
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <tamagotchi:ButtonBrowseContentView />
-            </HorizontalStackLayout>
+            <tamagotchi:ButtonBrowseContentView />
 
             <ImageButton
                 Source="delete_button.png"
@@ -62,7 +63,7 @@
             
             <tamagotchi:PetValuesContentView />
 
-        </VerticalStackLayout>
+        </FlexLayout>
 
     </ScrollView>
 

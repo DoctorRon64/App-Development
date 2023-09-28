@@ -40,7 +40,6 @@ namespace TamagotchiMauiApp
 			{
 				IsEntryVisible = false;
 				IsEntryVisible = false;
-				IsEntryVisible = false;
                 PetNameText = $"{myCreaturePet.Name}";
             } 
 			else

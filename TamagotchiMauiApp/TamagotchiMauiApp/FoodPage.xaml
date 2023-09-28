@@ -6,7 +6,11 @@
              BackgroundColor="LightBlue"
              >
 
-    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+    <FlexLayout 
+            Direction="Column"
+            AlignItems="Center"
+            JustifyContent="SpaceEvenly"
+            >
         <Label
                 Text="Food Hall"
                 FontSize="52"
@@ -34,10 +38,7 @@
              Margin="20,0,0,0"
         />
 
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <tamagotchi:ButtonBrowseContentView />
-        </HorizontalStackLayout>
-
+        <tamagotchi:ButtonBrowseContentView />
         <tamagotchi:PetValuesContentView />
-    </VerticalStackLayout>
+    </FlexLayout>
 </ContentPage>

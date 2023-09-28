@@ -6,7 +6,11 @@
              BackgroundColor="LightBlue"
              >
 
-    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+    <FlexLayout 
+            Direction="Column"
+            AlignItems="Center"
+            JustifyContent="SpaceEvenly"
+            >
         <Label
                 Text="Slurping Hall"
                 FontSize="52"
@@ -21,10 +25,7 @@
                 HorizontalOptions="Center" 
         />
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand" >
-            <tamagotchi:ButtonBrowseContentView />
-        </HorizontalStackLayout>
-
+        <tamagotchi:ButtonBrowseContentView />
         <tamagotchi:PetValuesContentView />
-    </VerticalStackLayout>
+    </FlexLayout>
 </ContentPage>

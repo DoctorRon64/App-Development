@@ -5,8 +5,12 @@
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
              Background="orange"
              >
-    
-    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+
+    <FlexLayout 
+            Direction="Column"
+            AlignItems="Center"
+            JustifyContent="SpaceEvenly"
+            >
         <Label
                 Text="Sex Dungeon"
                 FontSize="52"
@@ -21,9 +25,8 @@
                 HorizontalOptions="Center" 
         />
 
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <tamagotchi:ButtonBrowseContentView />
-        </HorizontalStackLayout>
-
-    </VerticalStackLayout>
+        <tamagotchi:ButtonBrowseContentView />
+        <tamagotchi:PetValuesContentView />
+        
+    </FlexLayout>
 </ContentPage>
