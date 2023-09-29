@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TamagotchiMauiApp.PetValuesContentView">
     <VerticalStackLayout>
-        <Label Text="Thirst:" />
-        <Label Text="{Binding creatureDataText.Thirst}" />
-        <Label Text="Hunger:" />
-        <Label Text="{Binding creatureDataText.Hunger}" />
+        <Label Text="{Binding myCreaturePet.Hunger}" />
+        <Label Text="{Binding myCreaturePet.Thirst}" />
+        <Label Text="{Binding myCreaturePet.Tired}" />
+        <Label Text="{Binding myCreaturePet.Loneliness}" />
+        <Label Text="{Binding myCreaturePet.Boredom}" />
+        <Label Text="{Binding myCreaturePet.Stimulated}" />
 
     </VerticalStackLayout>
 </ContentView>

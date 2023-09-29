@@ -1,20 +1,34 @@
-using Newtonsoft.Json;
+using System;
+using System.ComponentModel;
+using Microsoft.Maui.Controls;
 
-namespace TamagotchiMauiApp;
-
-public partial class PetValuesContentView : ContentView
+namespace TamagotchiMauiApp
 {
-	public Creature creatureDataText
+	public partial class PetValuesContentView : ContentView, INotifyPropertyChanged
 	{
-		get { return (Creature)GetValue(creatureDataTextProperty); }
-		set { SetValue(creatureDataTextProperty, value); }
-	}
+		public Creature MyCreaturePet { get; private set; }
+		public event PropertyChangedEventHandler PropertyChanged;
+		protected void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-	public static readonly BindableProperty creatureDataTextProperty = BindableProperty.Create(nameof(creatureDataText), typeof(Creature), typeof(PetValuesContentView));
+		public PetValuesContentView()
+		{
+			InitializeComponent();
+			InitializeData();
+		}
 
-	public PetValuesContentView()
-	{
-		BindingContext = this;
-		InitializeComponent();
+		private async void InitializeData()
+		{
+			var dataStore = DependencyService.Get<IDataStore<Creature>>();
+			MyCreaturePet = await dataStore.ReadItem();
+
+			if (MyCreaturePet != null)
+			{
+				MyCreaturePet.Hunger = 100f;
+				await dataStore.UpdateItem(MyCreaturePet);
+			} else
+			{
+				MyCreaturePet = null;
+			}
+		}
 	}
 }
