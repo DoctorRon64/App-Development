@@ -25,6 +25,6 @@ public partial class App : Application
 		var sleepTime = Preferences.Get("sleepTime", wakeTime);
 		var timeElapsed = wakeTime - sleepTime;
 
-		Preferences.Set("timeElapsed", timeElapsed.TotalSeconds);
+		Preferences.Set("timeElapsed", timeElapsed.TotalMilliseconds);
 	}
 }
