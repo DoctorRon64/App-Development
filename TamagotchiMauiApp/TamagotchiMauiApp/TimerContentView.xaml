@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TamagotchiMauiApp.PetValuesContentView">
-    <VerticalStackLayout>
+             xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
+             x:Class="TamagotchiMauiApp.TimerContentView">
+    <HorizontalStackLayout>
+        <Label 
+            Text="Timer Installed"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label Text=" Hunger: " />
         <Label Text="{Binding myCreaturePet.Hunger}" />
+        <Label Text=" Thirst: " />
         <Label Text="{Binding myCreaturePet.Thirst}" />
+        <Label Text=" Tired: " />
         <Label Text="{Binding myCreaturePet.Tired}" />
+        <Label Text=" Loneliness: " />
         <Label Text="{Binding myCreaturePet.Loneliness}" />
+        <Label Text=" Boredom: " />
         <Label Text="{Binding myCreaturePet.Boredom}" />
+        <Label Text=" Stimulated: " />
         <Label Text="{Binding myCreaturePet.Stimulated}" />
-
-    </VerticalStackLayout>
+    </HorizontalStackLayout>
 </ContentView>

@@ -26,7 +26,6 @@
         />
 
         <tamagotchi:ButtonBrowseContentView />
-        <tamagotchi:PetValuesContentView />
-        
+        <tamagotchi:TimerContentView />
     </FlexLayout>
 </ContentPage>

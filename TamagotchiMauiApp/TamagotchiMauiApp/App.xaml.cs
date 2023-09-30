@@ -1,30 +1,33 @@
-﻿namespace TamagotchiMauiApp;
-
-public partial class App : Application
+﻿namespace TamagotchiMauiApp
 {
-	public App()
-	{
-		DependencyService.RegisterSingleton<IDataStore<Creature>>(new RemoteDataStore());
-		InitializeComponent();
-		MainPage = new AppShell();
-	}
+    public partial class App : Application
+    {
+        private DateTime appResumeTime;
+        private TimeSpan timeAway;
 
-	protected override void OnSleep()
-	{
-		base.OnSleep();
+        public App()
+        {
+            DependencyService.RegisterSingleton<IDataStore<Creature>>(new RemoteDataStore());
+            InitializeComponent();
+            MainPage = new AppShell();
+        }
 
-		var sleepTime = DateTime.Now;
-		Preferences.Set("sleepTime", sleepTime);
-	}
+        protected override void OnStart()
+        {
+            Preferences.Set("timeElapsed", 0);
 
-	protected override void OnResume()
-	{
-		base.OnResume();
+            var sleepTime = Preferences.Get("SleepTime", DateTime.Now);
+            var wakeTime = DateTime.Now;
 
-		var wakeTime = DateTime.Now;
-		var sleepTime = Preferences.Get("sleepTime", wakeTime);
-		var timeElapsed = wakeTime - sleepTime;
+            TimeSpan ElapsedTime = wakeTime - sleepTime;
+            float timeAsleepInMilli = ElapsedTime.Milliseconds;
+            Preferences.Set("timeElapsed", timeAsleepInMilli);
+        }
 
-		Preferences.Set("timeElapsed", timeElapsed.TotalMilliseconds);
-	}
+        protected override void OnSleep()
+        {
+            var sleepTime = DateTime.Now;
+            Preferences.Set("SleepTime", sleepTime);
+        }
+    }
 }

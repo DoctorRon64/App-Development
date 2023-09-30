@@ -10,7 +10,7 @@
                     x:Name="Gotofood"
                     Source="food_button.png"
                     Clicked="ToFoodHallFunction"
-                    HeightRequest="80"
+                    HeightRequest="60"
                     HorizontalOptions="Center"
                     Aspect="AspectFit"
             />
@@ -19,7 +19,7 @@
                     Source="home_button.png"
                     Clicked="ToMainHallFunction"
                     HorizontalOptions="Center"
-                    HeightRequest="80"
+                    HeightRequest="60"
                     Margin="20,0,0,0"
                     Aspect="AspectFit"
             />
@@ -28,7 +28,7 @@
                     Source="drink_button.png"
                     Clicked="ToSlurpHallFunction"
                     HorizontalOptions="Center"
-                    HeightRequest="80"
+                    HeightRequest="60"
                     Margin="20,0,0,0"
                     Aspect="AspectFit"
             />
@@ -40,7 +40,7 @@
                     Source="sleep_button.png"
                     Clicked="ToSleepHallFunction"
                     HorizontalOptions="Center"
-                    HeightRequest="80"
+                    HeightRequest="60"
                     Aspect="AspectFit"
             />
 
@@ -49,7 +49,7 @@
                     Source="sex_button.png"
                     Clicked="ToSexHallFunction"
                     HorizontalOptions="Center"
-                    HeightRequest="80"
+                    HeightRequest="60"
                     Margin="20,0,0,0"
                     Aspect="AspectFit"
             />
@@ -58,7 +58,7 @@
                     Source="bored_button.png"
                     Clicked="ToArcadeHallFunction"
                     HorizontalOptions="Center"
-                    HeightRequest="80"
+                    HeightRequest="60"
                     Margin="20,0,0,0"
                     Aspect="AspectFit"
             />

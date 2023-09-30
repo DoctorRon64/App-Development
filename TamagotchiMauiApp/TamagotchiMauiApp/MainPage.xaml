@@ -5,66 +5,59 @@
              x:Class="TamagotchiMauiApp.MainPage"
              BackgroundImageSource="bg_home.png"
              >
+    <FlexLayout 
+         Direction="Column"
+         AlignItems="Center"
+         JustifyContent="SpaceEvenly"
+         >
+         
+         <Label
+             Text="PetName:"
+             FontSize="52"
+             FontFamily="DeputyJack"
+             HorizontalOptions="Center" 
+             TextColor="Black"
+         />
 
-    <ScrollView>
+         <Label
+             Text="{Binding PetNameText, Mode=OneWay}"
+             FontSize="40"
+             FontFamily="DeputyJack"
+             HorizontalOptions="Center" 
+             TextColor="white"
+         />
 
-        <FlexLayout 
-            Direction="Column"
-            AlignItems="Center"
-            JustifyContent="SpaceEvenly"
-            >
-            
-            <Label
-                Text="PetName:"
-                FontSize="52"
-                FontFamily="DeputyJack"
-                HorizontalOptions="Center" 
-                TextColor="Black"
-            />
+         <Entry
+             x:Name="PetNameEntry"
+             Placeholder="Enter Your PET name Here"
+             TextColor="Black"
+             BackgroundColor="LightGray"
+             WidthRequest="500"
+             MaxLength="30"
+             Text="{Binding PetNameText}" 
+             Completed="OnEntryCompleted" 
+             IsVisible="{Binding IsEntryVisible}"
+         />
 
-            <Label
-                Text="{Binding PetNameText, Mode=OneWay}"
-                FontSize="52"
-                FontFamily="DeputyJack"
-                HorizontalOptions="Center" 
-                TextColor="white"
-            />
+         <Image
+             Source="dotnet_bot.png"
+             HeightRequest="200"
+             HorizontalOptions="Center" 
+         />
 
-            <Entry
-                x:Name="PetNameEntry"
-                Placeholder="Enter Your PET name Here"
-                TextColor="Black"
-                BackgroundColor="LightGray"
-                WidthRequest="500"
-                MaxLength="30"
-                Text="{Binding PetNameText}" 
-                Completed="OnEntryCompleted" 
-                IsVisible="{Binding IsEntryVisible}"
-                
-                Grid.Column="2"
-            />
+         <tamagotchi:ButtonBrowseContentView />
 
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="200"
-                HorizontalOptions="Center" 
-            />
+         <ImageButton
+             Source="delete_button.png"
+             Clicked="ClearPetData"
+             HorizontalOptions="Center"
+             HeightRequest="60"
+             WidthRequest="60"
+             Aspect="AspectFit"
+         />
+         
+         <tamagotchi:TimerContentView />
 
-            <tamagotchi:ButtonBrowseContentView />
-
-            <ImageButton
-                Source="delete_button.png"
-                Clicked="ClearPetData"
-                HorizontalOptions="Center"
-                HeightRequest="80"
-                WidthRequest="80"
-                Aspect="AspectFit"
-            />
-            
-            <tamagotchi:PetValuesContentView />
-
-        </FlexLayout>
-
-    </ScrollView>
+     </FlexLayout>
 
 </ContentPage>

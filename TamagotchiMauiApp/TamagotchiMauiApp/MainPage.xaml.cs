@@ -10,8 +10,6 @@ namespace TamagotchiMauiApp
 {
 	public partial class MainPage : ContentPage, INotifyPropertyChanged
 	{
-		private float lesserStats = 10000;
-		private static float lowerStatAmount = 0.1f;
 		public Creature myCreaturePet { get; set; } = new Creature
 		{
             Id = 0,
@@ -43,8 +41,8 @@ namespace TamagotchiMauiApp
 				IsEntryVisible = false;
 				IsEntryVisible = false;
                 PetNameText = $"{myCreaturePet.Name}";
-            } 
-			else
+            }
+            else
 			{
 				IsEntryVisible = true;
 			}
@@ -56,12 +54,7 @@ namespace TamagotchiMauiApp
             OnPropertyChanged(nameof(IsEntryVisible));
             OnPropertyChanged(nameof(PetNameText));
 
-
-			float timeSlept = Preferences.Get("timeElapsed", 0);
-			LowerStatsOnContinue(timeSlept);
-			Preferences.Set("timeElapsed", 0f);
-
-		}
+        }
 
         void OnEntryCompleted(object sender, EventArgs e)
         {
@@ -102,14 +95,5 @@ namespace TamagotchiMauiApp
             PetNameText = null;
             IsEntryVisible = true;
         }
-
-		public void LowerStatsOnContinue(float _TimeSlept)
-		{
-			float timesMissed = _TimeSlept / lesserStats;
-			for (int i = 0; i < timesMissed; i++)
-			{
-				myCreaturePet.LowerStats(lowerStatAmount);
-			}
-		}
-	}
+    }
 }
