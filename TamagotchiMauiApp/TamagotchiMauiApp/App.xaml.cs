@@ -9,13 +9,13 @@
         {
             DependencyService.RegisterSingleton<IDataStore<Creature>>(new RemoteDataStore());
             InitializeComponent();
+
+            Preferences.Set("timeElapsed", 0.0f);
             MainPage = new AppShell();
         }
 
-        protected override void OnStart()
+        protected override void OnResume()
         {
-            Preferences.Set("timeElapsed", 0);
-
             var sleepTime = Preferences.Get("SleepTime", DateTime.Now);
             var wakeTime = DateTime.Now;
 

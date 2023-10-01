@@ -7,29 +7,13 @@ namespace TamagotchiMauiApp
 {
     public partial class TimerContentView : ContentView, INotifyPropertyChanged
     {
-        public float IncreaseInterval { get; set; }
-        public float ElapsedTime
-        {
-            get
-            {
-                if (Preferences.ContainsKey("timeElapsed"))
-                {
-                    return Preferences.Get("timeElapsed", 0);
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-        }
-        private Creature myCreaturePet { get; set; }
+        public float ElapsedTime => Preferences.Get("timeElapsed", 0.0f);
+        public Creature myCreaturePet { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        Random random = new Random();
+        float minValue = .000001f;
+        float maxValue = .01f;
+        float alphaValue = 2.0f;
 
         public TimerContentView()
         {
@@ -57,26 +41,32 @@ namespace TamagotchiMauiApp
 
             if (myCreaturePet != null)
             {
-                SetCreatureProperties(-0.1f);
+                float IncreaseInterval = (float)((float)(Math.Pow(maxValue, alphaValue + 1) - Math.Pow(minValue, alphaValue + 1)) * (float)random.NextDouble() + Math.Pow(minValue, alphaValue + 1));
+                IncreaseInterval = (float)Math.Pow(IncreaseInterval, 1.0 / (alphaValue + 1));
+
+                SetCreatureProperties(myCreaturePet, IncreaseInterval);
                 await dataStore.UpdateItem(myCreaturePet);
-                OnPropertyChanged("myCreaturePet");
             }
 
-            if (ElapsedTime != 0)
+            if (ElapsedTime != 0.0f)
             {
-                SetCreatureProperties(ElapsedTime);
-                Preferences.Set("timeElapsed", 0);
+                SetCreatureProperties(myCreaturePet, ElapsedTime);   
+                Preferences.Set("timeElapsed", 0.0f);
             }
         }
 
-        private void SetCreatureProperties(float _value)
+        private void SetCreatureProperties(Creature _creature, float _value)
         {
-            myCreaturePet.Hunger += _value;
-            myCreaturePet.Thirst += _value;
-            myCreaturePet.Boredom += _value;
-            myCreaturePet.Tired += _value;
-            myCreaturePet.Stimulated += _value;
-            myCreaturePet.Loneliness += _value;
+            var properties = _creature.GetType().GetProperties();
+
+            foreach (var propertyInfo in properties)
+            {
+                if (propertyInfo.PropertyType == typeof(float))
+                {
+                    float newValue = (float)propertyInfo.GetValue(_creature) + _value;
+                    propertyInfo.SetValue(_creature, Math.Min(newValue, 100f));
+                }
+            }
         }
     }
 }

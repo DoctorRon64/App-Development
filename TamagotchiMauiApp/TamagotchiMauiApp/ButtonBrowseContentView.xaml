@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TamagotchiMauiApp.ButtonBrowseContentView"
              >
-    <VerticalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+    <Grid
+        RowDefinitions="*,*"
+        ColumnDefinitions="*,*,*"
+        ColumnSpacing="40"
+        RowSpacing="5"
+        >
             <ImageButton 
                     x:Name="Gotofood"
                     Source="food_button.png"
@@ -13,6 +17,9 @@
                     HeightRequest="60"
                     HorizontalOptions="Center"
                     Aspect="AspectFit"
+                
+                Grid.Row="0"
+                Grid.Column="0"
             />
 
             <ImageButton
@@ -22,6 +29,8 @@
                     HeightRequest="60"
                     Margin="20,0,0,0"
                     Aspect="AspectFit"
+                Grid.Row="0"
+                Grid.Column="1"
             />
 
             <ImageButton 
@@ -31,17 +40,20 @@
                     HeightRequest="60"
                     Margin="20,0,0,0"
                     Aspect="AspectFit"
+                Grid.Row="0"
+                Grid.Column="2"
             />
             
-        </HorizontalStackLayout>
+        
 
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
             <ImageButton 
                     Source="sleep_button.png"
                     Clicked="ToSleepHallFunction"
                     HorizontalOptions="Center"
                     HeightRequest="60"
                     Aspect="AspectFit"
+                Grid.Row="1"
+                Grid.Column="0"
             />
 
 
@@ -52,6 +64,8 @@
                     HeightRequest="60"
                     Margin="20,0,0,0"
                     Aspect="AspectFit"
+                Grid.Row="1"
+                Grid.Column="1"
             />
 
             <ImageButton 
@@ -61,8 +75,9 @@
                     HeightRequest="60"
                     Margin="20,0,0,0"
                     Aspect="AspectFit"
+                Grid.Row="1"
+                Grid.Column="2"
             />
-        </HorizontalStackLayout>
+    </Grid>
 
-    </VerticalStackLayout>
 </ContentView>

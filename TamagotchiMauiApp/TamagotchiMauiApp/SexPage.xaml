@@ -25,6 +25,14 @@
                 HorizontalOptions="Center" 
         />
 
+        <ImageButton
+             Source="delete_button.png"
+             HorizontalOptions="Center"
+             HeightRequest="60"
+             WidthRequest="60"
+             Aspect="AspectFit"
+         />
+        
         <tamagotchi:ButtonBrowseContentView />
         <tamagotchi:TimerContentView />
         
