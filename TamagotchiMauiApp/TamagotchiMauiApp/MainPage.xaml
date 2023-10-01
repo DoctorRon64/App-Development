@@ -33,6 +33,7 @@
              x:Name="PetNameEntry"
              Placeholder="Enter Your PET name Here"
              TextColor="Black"
+             VerticalOptions="FillAndExpand"
              BackgroundColor="LightGray"
              WidthRequest="500"
              MaxLength="30"

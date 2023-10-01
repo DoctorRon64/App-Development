@@ -48,7 +48,7 @@ namespace TamagotchiMauiApp
                 await dataStore.UpdateItem(myCreaturePet);
             }
 
-            if (ElapsedTime != 0.0f)
+            if (ElapsedTime != 0.0f && myCreaturePet != null)
             {
                 SetCreatureProperties(myCreaturePet, ElapsedTime);   
                 Preferences.Set("timeElapsed", 0.0f);
