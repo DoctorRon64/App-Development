@@ -57,6 +57,10 @@
 	  <None Remove="Resources\Images\drink_button.svg" />
 	  <None Remove="Resources\Images\food_button.svg" />
 	  <None Remove="Resources\Images\home_button.svg" />
+	  <None Remove="Resources\Images\monkey_hungry_sprite.png" />
+	  <None Remove="Resources\Images\monkey_idle_sprite.png" />
+	  <None Remove="Resources\Images\monkey_sleep_sprite.png" />
+	  <None Remove="Resources\Images\monkey_thirst_sprite.png" />
 	  <None Remove="Resources\Images\sex_button.svg" />
 	  <None Remove="Resources\Images\sleep_button.svg" />
 	</ItemGroup>

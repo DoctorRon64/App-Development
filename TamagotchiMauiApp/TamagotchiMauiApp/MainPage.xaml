@@ -43,7 +43,7 @@
          />
 
          <Image
-             Source="dotnet_bot.png"
+             Source="monkey_idle_sprite.png"
              HeightRequest="200"
              HorizontalOptions="Center" 
          />

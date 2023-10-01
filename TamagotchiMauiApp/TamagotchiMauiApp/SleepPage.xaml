@@ -20,7 +20,7 @@
         />
 
         <Image
-                Source="dotnet_bot.png"
+                Source="monkey_sleep_sprite.png"
                 HeightRequest="200"
                 HorizontalOptions="Center" 
         />

@@ -16,26 +16,15 @@
                 FontSize="52"
                 FontFamily="DeputyJack"
                 HorizontalOptions="Center" 
+                VerticalOptions="FillAndExpand"
                 TextColor="Black"
         />
 
         <Image
-                Source="dotnet_bot.png"
-                HeightRequest="200"
+                Source="monkey_hungry_sprite.png"
+                HeightRequest="250"
+                VerticalOptions="FillAndExpand"
                 HorizontalOptions="Center" 
-        />
-
-        <Label
-             x:Name="HungerAmountText"
-             Text="{Binding HungerTextAmount, Mode=OneWay}"
-             FontSize="24"
-             HorizontalOptions="Center"
-        />
-
-        <Label
-             Text="{Binding HungerText, Mode=OneWay}"
-             HorizontalOptions="Center"
-             Margin="20,0,0,0"
         />
 
         <tamagotchi:ButtonBrowseContentView />
