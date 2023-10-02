@@ -23,7 +23,9 @@ namespace TamagotchiMauiApp
             Stimulated = 0f,
 		};
 		public bool IsEntryVisible { get; set; } = true;
-		public string PetNameText { get; set; } = null;
+		public bool IsMonkeyVisible { get; set; } = false;
+
+        public string PetNameText { get; set; } = null;
 
         public MainPage()
         {
@@ -40,12 +42,14 @@ namespace TamagotchiMauiApp
 			{
 				IsEntryVisible = false;
 				IsEntryVisible = false;
+                IsMonkeyVisible = true;
                 PetNameText = $"{myCreaturePet.Name}";
             }
             else
 			{
 				IsEntryVisible = true;
-			}
+                IsMonkeyVisible = false;
+            }
 
             Entry entry = new Entry { Placeholder = PetNameText };
 			entry.Completed += OnEntryCompleted;
@@ -53,7 +57,6 @@ namespace TamagotchiMauiApp
             OnPropertyChanged(nameof(myCreaturePet));
             OnPropertyChanged(nameof(IsEntryVisible));
             OnPropertyChanged(nameof(PetNameText));
-
         }
 
         void OnEntryCompleted(object sender, EventArgs e)
@@ -63,16 +66,17 @@ namespace TamagotchiMauiApp
             var dataStore = DependencyService.Get<IDataStore<Creature>>();
             string computerName = Dns.GetHostName();
             myCreaturePet = CreateCreature(text, computerName);
+
             var result = dataStore.CreateItem(myCreaturePet);
 
             IsEntryVisible = false;
+            IsMonkeyVisible = true;
             PetNameText = $"{myCreaturePet.Name}";
         }
 
-
         Creature CreateCreature(string name, string username)
 		{
-			Creature myCreaturePet = new Creature
+            Creature myCreaturePet = new Creature
 			{
 				Id = 0,
 				Name = name,
@@ -83,7 +87,7 @@ namespace TamagotchiMauiApp
 				Boredom = 0f,
 				Loneliness = 0f,
 				Stimulated = 0f,
-			};
+            };
 			return myCreaturePet;
 		}
 
@@ -94,6 +98,7 @@ namespace TamagotchiMauiApp
 
             PetNameText = null;
             IsEntryVisible = true;
+            IsMonkeyVisible = false;
         }
     }
 }

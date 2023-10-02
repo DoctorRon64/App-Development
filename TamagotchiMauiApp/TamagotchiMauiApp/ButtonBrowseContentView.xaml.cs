@@ -37,4 +37,9 @@ public partial class ButtonBrowseContentView : ContentView
     {
         Navigation.PushAsync(new BoredPage());
     }
+
+    private void ToPartyHallFunction(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PartyPage());
+    }
 }

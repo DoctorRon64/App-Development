@@ -21,12 +21,21 @@
         />
 
         <Image
-                Source="monkey_hungry_sprite.png"
+                Source="monkey_hungry.png"
                 HeightRequest="250"
                 VerticalOptions="FillAndExpand"
                 HorizontalOptions="Center" 
         />
 
+        <ImageButton
+             Source="abutton_feed_hungry.png"
+             Clicked="ImageButton_Clicked"
+             HorizontalOptions="FillAndExpand"
+             HeightRequest="100"
+             WidthRequest="200"
+             Aspect="AspectFit"
+        />
+        
         <tamagotchi:ButtonBrowseContentView />
         <tamagotchi:TimerContentView />
         

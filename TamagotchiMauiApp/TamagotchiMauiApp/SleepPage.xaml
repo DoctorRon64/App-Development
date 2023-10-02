@@ -20,11 +20,20 @@
         />
 
         <Image
-                Source="monkey_sleep_sprite.png"
-                HeightRequest="200"
+                Source="monkey_sleep.png"
+                HeightRequest="250"
                 HorizontalOptions="Center" 
         />
 
+        <ImageButton
+             Source="abutton_feed_sleep.png"
+             Clicked="ImageButton_Clicked"
+             HorizontalOptions="FillAndExpand"
+             HeightRequest="100"
+             WidthRequest="200"
+             Aspect="AspectFit"
+        />
+        
         <tamagotchi:ButtonBrowseContentView />
         <tamagotchi:TimerContentView />
     </FlexLayout>

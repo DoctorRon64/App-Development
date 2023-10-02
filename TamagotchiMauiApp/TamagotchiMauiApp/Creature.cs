@@ -27,5 +27,5 @@ namespace TamagotchiMauiApp
 			Loneliness = Loneliness - _Amount;
 			Stimulated = Stimulated - _Amount;
 		}
-	}
+    }
 }

@@ -51,18 +51,27 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\DeputyJack.ttf" />
 	  <None Remove="Resources\Fonts\MonkeyBanana.ttf" />
+	  <None Remove="Resources\Images\abutton_feed_boredom.svg" />
+	  <None Remove="Resources\Images\abutton_feed_hungry.svg" />
+	  <None Remove="Resources\Images\abutton_feed_party.svg" />
+	  <None Remove="Resources\Images\abutton_feed_sleep.svg" />
+	  <None Remove="Resources\Images\abutton_feed_stimulated.svg" />
+	  <None Remove="Resources\Images\abutton_feed_thirst.svg" />
 	  <None Remove="Resources\Images\Bg_Home.svg" />
-	  <None Remove="Resources\Images\bored_button.svg" />
-	  <None Remove="Resources\Images\delete_button.svg" />
-	  <None Remove="Resources\Images\drink_button.svg" />
-	  <None Remove="Resources\Images\food_button.svg" />
-	  <None Remove="Resources\Images\home_button.svg" />
-	  <None Remove="Resources\Images\monkey_hungry_sprite.png" />
-	  <None Remove="Resources\Images\monkey_idle_sprite.png" />
-	  <None Remove="Resources\Images\monkey_sleep_sprite.png" />
-	  <None Remove="Resources\Images\monkey_thirst_sprite.png" />
-	  <None Remove="Resources\Images\sex_button.svg" />
-	  <None Remove="Resources\Images\sleep_button.svg" />
+	  <None Remove="Resources\Images\button_bored.svg" />
+	  <None Remove="Resources\Images\button_delete.svg" />
+	  <None Remove="Resources\Images\button_drink.svg" />
+	  <None Remove="Resources\Images\button_food.svg" />
+	  <None Remove="Resources\Images\button_home.svg" />
+	  <None Remove="Resources\Images\button_party.svg" />
+	  <None Remove="Resources\Images\button_sex.svg" />
+	  <None Remove="Resources\Images\button_sleep.svg" />
+	  <None Remove="Resources\Images\monkey_boredom.svg" />
+	  <None Remove="Resources\Images\monkey_hungry.svg" />
+	  <None Remove="Resources\Images\monkey_idle.svg" />
+	  <None Remove="Resources\Images\monkey_sexy.svg" />
+	  <None Remove="Resources\Images\monkey_sleep.svg" />
+	  <None Remove="Resources\Images\monkey_thirst.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -76,6 +85,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ButtonBrowseContentView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PartyPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="SexPage.xaml">

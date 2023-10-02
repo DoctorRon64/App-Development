@@ -20,18 +20,19 @@
         />
 
         <Image
-                Source="dotnet_bot.png"
-                HeightRequest="200"
+                Source="monkey_sexy.png"
+                HeightRequest="250"
                 HorizontalOptions="Center" 
         />
 
         <ImageButton
-             Source="delete_button.png"
-             HorizontalOptions="Center"
-             HeightRequest="60"
-             WidthRequest="60"
+             Source="abutton_feed_stimulated.png"
+             Clicked="ImageButton_Clicked"
+             HorizontalOptions="FillAndExpand"
+             HeightRequest="100"
+             WidthRequest="200"
              Aspect="AspectFit"
-         />
+        />
         
         <tamagotchi:ButtonBrowseContentView />
         <tamagotchi:TimerContentView />

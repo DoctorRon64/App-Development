@@ -18,7 +18,7 @@
              FontSize="52"
              FontFamily="DeputyJack"
              HorizontalOptions="Center" 
-             TextColor="Black"
+             TextColor="White"
          />
 
          <Label
@@ -43,14 +43,13 @@
          />
 
          <Image
-             Source="monkey_idle_sprite.png"
-             HeightRequest="200"
+             Source="monkey_idle.png"
+             IsVisible="{Binding IsMonkeyVisible}"
+             HeightRequest="250"
              HorizontalOptions="Center" 
          />
 
-         <tamagotchi:ButtonBrowseContentView />
-
-         <ImageButton
+        <ImageButton
              Source="delete_button.png"
              Clicked="ClearPetData"
              HorizontalOptions="Center"
@@ -58,8 +57,11 @@
              WidthRequest="60"
              Aspect="AspectFit"
          />
-         
-         <tamagotchi:TimerContentView />
+
+        <tamagotchi:ButtonBrowseContentView 
+             IsVisible="{Binding IsMonkeyVisible}"
+            />
+        <tamagotchi:TimerContentView />
      </FlexLayout>
 
 </ContentPage>

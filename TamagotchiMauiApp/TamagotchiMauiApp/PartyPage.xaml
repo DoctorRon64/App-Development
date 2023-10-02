@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TamagotchiMauiApp.BoredPage"
+             x:Class="TamagotchiMauiApp.PartyPage"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
-             BackgroundColor="Orange"
+             Background="orange"
              >
 
     <FlexLayout 
@@ -12,21 +12,29 @@
             JustifyContent="SpaceEvenly"
             >
         <Label
-                Text="Arcade Hall"
+                Text="Party"
                 FontSize="52"
                 FontFamily="DeputyJack"
-                HorizontalOptions="Center"
+                HorizontalOptions="Center" 
+                TextColor="Black"
+        />
+
+        <Label
+                Text="(Social Gathering)"
+                FontSize="10"
+                FontFamily="DeputyJack"
+                HorizontalOptions="Center" 
                 TextColor="Black"
         />
 
         <Image
-                Source="monkey_boredom.png"
+                Source="dotnet_bot.png"
                 HeightRequest="250"
                 HorizontalOptions="Center" 
         />
 
         <ImageButton
-             Source="abutton_feed_boredom.png"
+             Source="abutton_feed_party.png"
              Clicked="ImageButton_Clicked"
              HorizontalOptions="FillAndExpand"
              HeightRequest="100"
@@ -36,5 +44,6 @@
 
         <tamagotchi:ButtonBrowseContentView />
         <tamagotchi:TimerContentView />
+
     </FlexLayout>
 </ContentPage>

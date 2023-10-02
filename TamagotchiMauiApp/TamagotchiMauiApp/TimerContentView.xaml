@@ -13,7 +13,7 @@
         <!-- Hunger -->
         <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical">
             <Label Text="Hunger:" VerticalOptions="Center" FontFamily="DeputyJack"/>
-            <Label Text="{Binding myCreaturePet.Hunger, StringFormat='{0:N0}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
+            <Label Text="{Binding myCreaturePet.Hunger, StringFormat='{0:F1}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
             <Slider Maximum="100" Minimum="0" Value="{Binding myCreaturePet.Hunger}" ThumbImageSource="alpha.png" IsEnabled="False" ThumbColor="Transparent" ScaleY="5"
                     VerticalOptions="FillAndExpand"
                     MinimumTrackColor="Brown"
@@ -23,7 +23,7 @@
         <!-- Thirst -->
         <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" >
             <Label Text="Thirst:" VerticalOptions="Center" FontFamily="DeputyJack"/>
-            <Label Text="{Binding myCreaturePet.Thirst, StringFormat='{0:N0}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
+            <Label Text="{Binding myCreaturePet.Thirst, StringFormat='{0:F1}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
             <Slider Maximum="100" Minimum="0" Value="{Binding myCreaturePet.Thirst}" ThumbImageSource="alpha.png" IsEnabled="False" ThumbColor="Transparent" ScaleY="5"
                     VerticalOptions="FillAndExpand"
                     MinimumTrackColor="DeepSkyBlue"
@@ -33,40 +33,40 @@
         <!-- Tired -->
         <StackLayout Grid.Row="0" Grid.Column="2" Orientation="Vertical">
             <Label Text="Tired:" VerticalOptions="Center" FontFamily="DeputyJack" />
-            <Label Text="{Binding myCreaturePet.Tired, StringFormat='{0:N0}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
+            <Label Text="{Binding myCreaturePet.Tired, StringFormat='{0:F1}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
             <Slider Maximum="100" Minimum="0" Value="{Binding myCreaturePet.Tired}" ThumbImageSource="alpha.png" IsEnabled="False" ThumbColor="Transparent" ScaleY="5"
                     VerticalOptions="FillAndExpand"
                     MinimumTrackColor="DarkSlateGray"
                     MaximumTrackColor="Gray" />
         </StackLayout>
 
-        <!-- Loneliness -->
+        <!-- Hornyness -->
         <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Vertical">
-            <Label Text="Loneliness:" VerticalOptions="Center" FontFamily="DeputyJack" />
-            <Label Text="{Binding myCreaturePet.Loneliness, StringFormat='{0:N0}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
-            <Slider Maximum="100" Minimum="0" Value="{Binding myCreaturePet.Loneliness}" ThumbImageSource="alpha.png" IsEnabled="False" ThumbColor="Transparent" ScaleY="5"
+            <Label Text="Hornyness:" VerticalOptions="Center" FontFamily="DeputyJack" />
+            <Label Text="{Binding myCreaturePet.Stimulated, StringFormat='{0:F1}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
+            <Slider Maximum="100" Minimum="0" Value="{Binding myCreaturePet.Stimulated}" ThumbImageSource="alpha.png" IsEnabled="False" ThumbColor="Transparent" ScaleY="5"
                     VerticalOptions="FillAndExpand"
-                    MinimumTrackColor="MediumPurple"
+                    MinimumTrackColor="LightPink"
                     MaximumTrackColor="Gray" />
         </StackLayout>
 
         <!-- Boredom -->
         <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical">
             <Label Text="Boredom:" VerticalOptions="Center" FontFamily="DeputyJack" />
-            <Label Text="{Binding myCreaturePet.Boredom, StringFormat='{0:N0}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
+            <Label Text="{Binding myCreaturePet.Boredom, StringFormat='{0:F1}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
             <Slider Maximum="100" Minimum="0" Value="{Binding myCreaturePet.Boredom}" ThumbImageSource="alpha.png" IsEnabled="False" ThumbColor="Transparent" ScaleY="5"
                     VerticalOptions="FillAndExpand"
                     MinimumTrackColor="DarkOrange"
                     MaximumTrackColor="Gray" />
         </StackLayout>
 
-        <!-- Hornyness -->
+        <!-- Loneliness -->
         <StackLayout Grid.Row="1" Grid.Column="2" Orientation="Vertical">
-            <Label Text="Hornyness:" VerticalOptions="Center" FontFamily="DeputyJack" />
-            <Label Text="{Binding myCreaturePet.Stimulated, StringFormat='{0:N0}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
-            <Slider Maximum="100" Minimum="0" Value="{Binding myCreaturePet.Stimulated}" ThumbImageSource="alpha.png" IsEnabled="False" ThumbColor="Transparent" ScaleY="5"
+            <Label Text="Loneliness:" VerticalOptions="Center" FontFamily="DeputyJack" />
+            <Label Text="{Binding myCreaturePet.Loneliness, StringFormat='{0:F1}'}" VerticalOptions="Center" FontFamily="DeputyJack"/>
+            <Slider Maximum="100" Minimum="0" Value="{Binding myCreaturePet.Loneliness}" ThumbImageSource="alpha.png" IsEnabled="False" ThumbColor="Transparent" ScaleY="5"
                     VerticalOptions="FillAndExpand"
-                    MinimumTrackColor="LightPink"
+                    MinimumTrackColor="MediumPurple"
                     MaximumTrackColor="Gray" />
         </StackLayout>
     </Grid>
