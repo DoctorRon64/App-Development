@@ -19,16 +19,16 @@
                 TextColor="Black"
         />
 
-        <Label
-                Text="(Social Gathering)"
-                FontSize="10"
-                FontFamily="DeputyJack"
-                HorizontalOptions="Center" 
-                TextColor="Black"
+        <Label 
+            Text="{Binding StatusText}"
+            FontSize="20"
+            FontFamily="DeputyJack"
+            HorizontalOptions="Center"
+            TextColor="Black" 
         />
 
         <Image
-                Source="dotnet_bot.png"
+                Source="monkey_loneliness.png"
                 HeightRequest="250"
                 HorizontalOptions="Center" 
         />

@@ -51,7 +51,7 @@ namespace TamagotchiMauiApp
                     Creature responseCreature = JsonConvert.DeserializeObject<Creature>(responseString);
                     return responseCreature;
                 }
-            }
+            } else { return null; }
             return null;
         }
 

@@ -20,6 +20,14 @@
                 TextColor="Black"
         />
 
+        <Label 
+            Text="{Binding StatusText}"
+            FontSize="20"
+            FontFamily="DeputyJack"
+            HorizontalOptions="Center"
+            TextColor="Black" 
+        />
+
         <Image
                 Source="monkey_hungry.png"
                 HeightRequest="250"

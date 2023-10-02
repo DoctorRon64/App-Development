@@ -76,17 +76,19 @@ namespace TamagotchiMauiApp
 
         Creature CreateCreature(string name, string username)
 		{
+            float defaultValue = 40f;
+
             Creature myCreaturePet = new Creature
 			{
 				Id = 0,
 				Name = name,
 				UserName = username,
-				Hunger = 0f,
-				Thirst = 0f,
-				Tired = 0f,
-				Boredom = 0f,
-				Loneliness = 0f,
-				Stimulated = 0f,
+				Hunger = defaultValue,
+				Thirst = defaultValue,
+				Tired = defaultValue,
+				Boredom = defaultValue,
+				Loneliness = defaultValue,
+				Stimulated = defaultValue,
             };
 			return myCreaturePet;
 		}

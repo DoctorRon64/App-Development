@@ -19,6 +19,14 @@
                 TextColor="Black"
         />
 
+        <Label 
+            Text="{Binding StatusText}"
+            FontSize="20"
+            FontFamily="DeputyJack"
+            HorizontalOptions="Center"
+            TextColor="Black" 
+        />
+
         <Image
                 Source="monkey_sleep.png"
                 HeightRequest="250"
@@ -26,6 +34,7 @@
         />
 
         <ImageButton
+            x:Name="ButtonFeed"
              Source="abutton_feed_sleep.png"
              Clicked="ImageButton_Clicked"
              HorizontalOptions="FillAndExpand"

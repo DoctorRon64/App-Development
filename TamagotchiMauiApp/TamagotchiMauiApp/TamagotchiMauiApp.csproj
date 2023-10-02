@@ -69,6 +69,7 @@
 	  <None Remove="Resources\Images\monkey_boredom.svg" />
 	  <None Remove="Resources\Images\monkey_hungry.svg" />
 	  <None Remove="Resources\Images\monkey_idle.svg" />
+	  <None Remove="Resources\Images\monkey_loneliness.svg" />
 	  <None Remove="Resources\Images\monkey_sexy.svg" />
 	  <None Remove="Resources\Images\monkey_sleep.svg" />
 	  <None Remove="Resources\Images\monkey_thirst.svg" />
@@ -78,6 +79,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+		<PackageReference Include="Xam.Plugin.Media" Version="6.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -11,12 +11,21 @@
             AlignItems="Center"
             JustifyContent="SpaceEvenly"
             >
+        
         <Label
-                Text="Slurping Hall"
-                FontSize="52"
-                FontFamily="DeputyJack"
-                HorizontalOptions="Center"
-                TextColor="Black"
+            Text="Slurping Hall"
+            FontSize="52"
+            FontFamily="DeputyJack"
+            HorizontalOptions="Center"
+            TextColor="Black"
+        />
+
+        <Label 
+            Text="{Binding StatusText}"
+            FontSize="20"
+            FontFamily="DeputyJack"
+            HorizontalOptions="Center"
+            TextColor="Black" 
         />
 
         <Image
