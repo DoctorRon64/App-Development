@@ -24,16 +24,19 @@ public partial class PartyPage : ContentPage
 	{
 		var dataStore = DependencyService.Get<IDataStore<Creature>>();
 		Creature myCreaturePet = await dataStore.ReadItem();
-		StatusText = myCreaturePet.Loneliness switch
+		if (myCreaturePet != null)
 		{
-			<= 5.0f => "YEAH just came back from the party with my friends",
-			<= 20f => "Idd stay on my phone and scroll on tiktok",
-			<= 40f => "Where is everyone",
-			<= 60f => "HELLO????",
-			<= 80f => "WHY IS ITT SOOO QUIETT",
-			<= 100 => "I AM SO SCARED SO ALONE GIVE ME FRIENDS",
-			_ => throw new Exception("Impossible")
-		};
+			StatusText = myCreaturePet.Loneliness switch
+			{
+				<= 5.0f => "YEAH just came back from the party with my friends",
+				<= 20f => "Idd stay on my phone and scroll on tiktok",
+				<= 40f => "Where is everyone",
+				<= 60f => "HELLO????",
+				<= 80f => "WHY IS ITT SOOO QUIETT",
+				<= 100 => "I AM SO SCARED SO ALONE GIVE ME FRIENDS",
+				_ => throw new Exception("Impossible")
+			};
+		}
 	}
 
 	private async void ImageButton_Clicked(object sender, EventArgs e)

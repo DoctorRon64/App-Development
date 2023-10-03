@@ -25,16 +25,19 @@ public partial class SexPage : ContentPage, INotifyPropertyChanged
 	{
 		var dataStore = DependencyService.Get<IDataStore<Creature>>();
 		Creature myCreaturePet = await dataStore.ReadItem();
-		StatusText = myCreaturePet.Stimulated switch
+		if (myCreaturePet != null)
 		{
-			<= 5.0f => "uhh whatttt",
-			<= 20f => "bro what is this",
-			<= 40f => "Why does this page excist",
-			<= 60f => "Sexual active",
-			<= 80f => "I am horny",
-			<= 100 => "GIVE ME SEX",
-			_ => throw new Exception("Impossible")
-		};
+			StatusText = myCreaturePet.Stimulated switch
+			{
+				<= 5.0f => "uhh whatttt",
+				<= 20f => "bro what is this",
+				<= 40f => "Why does this page excist",
+				<= 60f => "Sexual active",
+				<= 80f => "I am horny",
+				<= 100 => "GIVE ME SEX",
+				_ => throw new Exception("Impossible")
+			};
+		}
 	}
 
 	private async void ImageButton_Clicked(object sender, EventArgs e)

@@ -51,8 +51,10 @@ namespace TamagotchiMauiApp
                     Creature responseCreature = JsonConvert.DeserializeObject<Creature>(responseString);
                     return responseCreature;
                 }
-            } else { return null; }
-            return null;
+            } else { 
+                return null;
+			}
+			return null;
         }
 
         public async Task<bool> UpdateItem(Creature item)

@@ -25,16 +25,20 @@ public partial class BoredPage : ContentPage, INotifyPropertyChanged
 	{
 		var dataStore = DependencyService.Get<IDataStore<Creature>>();
 		Creature myCreaturePet = await dataStore.ReadItem();
-		StatusText = myCreaturePet.Boredom switch
+
+		if (myCreaturePet != null )
 		{
-			<= 5.0f => "I am so hyped, I'm doing the 'Rickroll'",
-			<= 20f => "I am vibing",
-			<= 40f => "I am questioning my life choices right now",
-			<= 60f => "Cookie clicker is fine by me",
-			<= 80f => "Meh, I am literally playing Clash of Clans now",
-			<= 100 => "I AM SOOOO BORED! IT'S GAME OVER FOR ME",
-			_ => throw new Exception("Impossible")
-		};
+			StatusText = myCreaturePet.Boredom switch
+			{
+				<= 5.0f => "I am so hyped, I'm doing the 'Rickroll'",
+				<= 20f => "I am vibing",
+				<= 40f => "I am questioning my life choices right now",
+				<= 60f => "Cookie clicker is fine by me",
+				<= 80f => "Meh, I am literally playing Clash of Clans now",
+				<= 100 => "I AM SOOOO BORED! IT'S GAME OVER FOR ME",
+				_ => throw new Exception("Impossible")
+			};
+		}
 	}
 
 	private async void ImageButton_Clicked(object sender, EventArgs e)
