@@ -1,46 +1,43 @@
 using System.ComponentModel;
+using System.Timers;
 
 namespace TamagotchiMauiApp;
 
 public partial class SlurpPage : ContentPage, INotifyPropertyChanged
 {
-    public Creature myCreaturePet { get; set; }
-    public string StatusText
-    {
-        get
-        {
-            if (myCreaturePet == null)
-            {
-                return "No creature found.";
-            }
-
-            return myCreaturePet.Thirst switch
-            {
-                <= 5.0f => "Nope no water needed, ill throw your bottle out the window",
-                <= 20f => "A drop of water could do",
-                <= 40f => "putt a beer on my tap",
-                <= 60f => "Please give me that 5 liter water bottle",
-                <= 80f => "I AM SO THIRSTY MY GOD",
-                <= 100 => "BOYS, IK KAN ECHT NIET MEER IK HEB WATTER NODIG WATER, WATER!!!, WATERRRR!!!!",
-                _ => throw new Exception("Impossible")
-            };
-        }
-    }
+    public string StatusText { get; set; }
 
     public SlurpPage()
 	{
-        BindingContext = this;
+		var Timer = new System.Timers.Timer()
+		{
+			Interval = 500,
+			AutoReset = true,
+		};
+		Timer.Elapsed += Timer_Elapsed;
+		Timer.Start();
+
+		BindingContext = this;
 		InitializeComponent();
-        Initialize();
-    }
+	}
 
-    private async void Initialize()
-    {
-        var datastore = DependencyService.Get<IDataStore<Creature>>();
-        myCreaturePet = await datastore.ReadItem();
-    }
+	private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
+	{
+		var dataStore = DependencyService.Get<IDataStore<Creature>>();
+		Creature myCreaturePet = await dataStore.ReadItem();
+		StatusText = myCreaturePet.Thirst switch
+		{
+			<= 5.0f => "Nope no water needed, I'll throw your bottle out the window",
+			<= 20f => "A drop of water could do",
+			<= 40f => "Put a beer on my tap",
+			<= 60f => "Please give me that 5-liter water bottle",
+			<= 80f => "I AM SO THIRSTY MY GOD",
+			<= 100f => "BOYS, IK KAN ECHT NIET MEER IK HEB WATER NODIG WATER, WATER!!!, WATERRRR!!!!",
+			_ => throw new Exception("Impossible")
+		};
+	}
 
-    private async void ImageButton_Clicked(object sender, EventArgs e)
+	private async void ImageButton_Clicked(object sender, EventArgs e)
     {
         var Button = (ImageButton)sender;
         await Button.ScaleTo(1.05, 250);
@@ -49,7 +46,7 @@ public partial class SlurpPage : ContentPage, INotifyPropertyChanged
         var dataStore = DependencyService.Get<IDataStore<Creature>>();
         Creature myCreaturePet = await dataStore.ReadItem();
 
-        float decreaseAmount = myCreaturePet.Thirst * 0.1f;
+		float decreaseAmount = myCreaturePet.Thirst * 0.1f;
         myCreaturePet.Thirst -= decreaseAmount;
 
         await dataStore.UpdateItem(myCreaturePet);
