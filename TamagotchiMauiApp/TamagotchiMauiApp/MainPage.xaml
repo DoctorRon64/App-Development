@@ -52,7 +52,7 @@
          />
 
         <ImageButton
-             Source="delete_button.png"
+             Source="button_delete.png"
              Clicked="ClearPetData"
              HorizontalOptions="Center"
              HeightRequest="60"
