@@ -1,1 +1,0 @@
-E:\Technics\_Repository\tamagotchiApp\TamagotchiMauiApp\TamagotchiMauiApp\TamagotchiMauiApp.csproj;x64
