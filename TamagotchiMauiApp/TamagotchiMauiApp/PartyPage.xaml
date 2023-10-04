@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TamagotchiMauiApp.PartyPage"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
-             Background="#7A52AE"
+             BackgroundImageSource="bg_loneliness.png"
              >
 
     <FlexLayout 
@@ -16,7 +16,7 @@
                 FontSize="52"
                 FontFamily="DeputyJack"
                 HorizontalOptions="Center" 
-                TextColor="Black"
+                TextColor="White"
         />
 
         <Label 
@@ -24,13 +24,14 @@
             FontSize="20"
             FontFamily="DeputyJack"
             HorizontalOptions="Center"
-            TextColor="Black" 
+            TextColor="White" 
         />
 
         <Image
-                Source="monkey_loneliness.png"
-                HeightRequest="250"
-                HorizontalOptions="Center" 
+            x:Name="movingImage"
+            Source="monkey_loneliness.png"
+            HeightRequest="250"
+            HorizontalOptions="Center" 
         />
 
         <ImageButton

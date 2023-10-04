@@ -30,6 +30,7 @@ namespace TamagotchiMauiApp
         {
             BindingContext = this;
             InitializeComponent();
+            AnimateHead();
         }
 
         protected override async void OnAppearing()
@@ -56,6 +57,13 @@ namespace TamagotchiMauiApp
             OnPropertyChanged(nameof(myCreaturePet));
             OnPropertyChanged(nameof(IsEntryVisible));
             OnPropertyChanged(nameof(PetNameText));
+        }
+
+        private async void AnimateHead()
+        {
+            await movingImage.TranslateTo(0, -10, 1000, Easing.SinInOut);
+            await movingImage.TranslateTo(0, 10, 1000, Easing.SinInOut);
+            AnimateHead();
         }
 
         void OnEntryCompleted(object sender, EventArgs e)
@@ -94,6 +102,10 @@ namespace TamagotchiMauiApp
 
         void ClearPetData(object sender, EventArgs e)
         {
+            var Button = (ImageButton)sender;
+            Button.ScaleTo(1.05, 250);
+            Button.ScaleTo(1, 250);
+
             var dataStore = DependencyService.Get<IDataStore<Creature>>();
             var result = dataStore.DeleteItem(myCreaturePet);
 

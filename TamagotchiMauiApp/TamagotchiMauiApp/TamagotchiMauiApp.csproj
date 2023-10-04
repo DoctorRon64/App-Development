@@ -57,7 +57,13 @@
 	  <None Remove="Resources\Images\abutton_feed_sleep.svg" />
 	  <None Remove="Resources\Images\abutton_feed_stimulated.svg" />
 	  <None Remove="Resources\Images\abutton_feed_thirst.svg" />
-	  <None Remove="Resources\Images\Bg_Home.svg" />
+	  <None Remove="Resources\Images\bg_boredom.png" />
+	  <None Remove="Resources\Images\bg_drink.png" />
+	  <None Remove="Resources\Images\bg_home.png" />
+	  <None Remove="Resources\Images\bg_hunger.png" />
+	  <None Remove="Resources\Images\bg_loneliness.png" />
+	  <None Remove="Resources\Images\bg_sex.png" />
+	  <None Remove="Resources\Images\bg_sleep.png" />
 	  <None Remove="Resources\Images\button_bored.svg" />
 	  <None Remove="Resources\Images\button_delete.svg" />
 	  <None Remove="Resources\Images\button_drink.svg" />

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
              x:Class="TamagotchiMauiApp.SlurpPage"
-             BackgroundColor="#00A5CD"
+             BackgroundImageSource="bg_drink.png"
              >
 
     <FlexLayout 
@@ -29,9 +29,10 @@
         />
 
         <Image
-                Source="monkey_thirst.png"
-                HeightRequest="250"
-                HorizontalOptions="Center" 
+            x:Name="movingImage"
+            Source="monkey_thirst.png"
+            HeightRequest="250"
+            HorizontalOptions="Center" 
         />
 
         <ImageButton

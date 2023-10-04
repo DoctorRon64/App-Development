@@ -46,6 +46,10 @@ public partial class SexPage : ContentPage, INotifyPropertyChanged
         await Button.ScaleTo(1.05, 250);
         await Button.ScaleTo(1, 250);
 
+		await movingImage.RotateTo(5, 100);
+        await movingImage.RotateTo(-5, 100);
+        await movingImage.RotateTo(0, 100);
+
         var dataStore = DependencyService.Get<IDataStore<Creature>>();
         Creature myCreaturePet = await dataStore.ReadItem();
 

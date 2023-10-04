@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TamagotchiMauiApp.BoredPage"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
-             BackgroundColor="Orange"
+             BackgroundImageSource="bg_boredom.png"
              >
 
     <FlexLayout 
@@ -28,9 +28,10 @@
         />
 
         <Image
-                Source="monkey_boredom.png"
-                HeightRequest="250"
-                HorizontalOptions="Center" 
+            x:Name="movingImage"
+            Source="monkey_boredom.png"
+            HeightRequest="250"
+            HorizontalOptions="Center" 
         />
 
         <ImageButton

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
              x:Class="TamagotchiMauiApp.FoodPage"
-             BackgroundColor="#7D2A2A"
+             BackgroundImageSource="bg_hunger.png"
              >
 
     <FlexLayout 
@@ -17,7 +17,7 @@
                 FontFamily="DeputyJack"
                 HorizontalOptions="Center" 
                 VerticalOptions="FillAndExpand"
-                TextColor="Black"
+                TextColor="White"
         />
 
         <Label 
@@ -25,14 +25,15 @@
             FontSize="20"
             FontFamily="DeputyJack"
             HorizontalOptions="Center"
-            TextColor="Black" 
+            TextColor="White" 
         />
 
         <Image
-                Source="monkey_hungry.png"
-                HeightRequest="250"
-                VerticalOptions="FillAndExpand"
-                HorizontalOptions="Center" 
+            x:Name="movingImage"
+            Source="monkey_hungry.png"
+            HeightRequest="250"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="Center" 
         />
 
         <ImageButton

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
              x:Class="TamagotchiMauiApp.SleepPage"
-             BackgroundColor="#2F4240"
+             BackgroundImageSource="bg_sleep.png"
              >
 
     <FlexLayout
@@ -12,11 +12,11 @@
             JustifyContent="SpaceEvenly"
             >
         <Label
-                Text="Dormitory Room"
-                FontSize="52"
-                FontFamily="DeputyJack"
-                HorizontalOptions="Center" 
-                TextColor="Black"
+            Text="Dormitory Room"
+            FontSize="52"
+            FontFamily="DeputyJack"
+            HorizontalOptions="Center" 
+            TextColor="White"
         />
 
         <Label 
@@ -24,13 +24,14 @@
             FontSize="20"
             FontFamily="DeputyJack"
             HorizontalOptions="Center"
-            TextColor="Black" 
+            TextColor="White"
         />
 
         <Image
-                Source="monkey_sleep.png"
-                HeightRequest="250"
-                HorizontalOptions="Center" 
+            x:Name="movingImage"
+            Source="monkey_sleep.png"
+            HeightRequest="250"
+            HorizontalOptions="Center" 
         />
 
         <ImageButton

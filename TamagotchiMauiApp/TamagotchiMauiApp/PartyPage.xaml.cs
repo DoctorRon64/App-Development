@@ -45,6 +45,11 @@ public partial class PartyPage : ContentPage
         await Button.ScaleTo(1.05, 250);
         await Button.ScaleTo(1, 250);
 
+        await movingImage.TranslateTo(-100, 0, 100);
+        await movingImage.TranslateTo(100, 0, 100);
+        await movingImage.TranslateTo(-100, 0, 100);
+		await movingImage.TranslateTo(0, 0, 100);
+
         var dataStore = DependencyService.Get<IDataStore<Creature>>();
         Creature myCreaturePet = await dataStore.ReadItem();
 

@@ -47,6 +47,9 @@ public partial class BoredPage : ContentPage, INotifyPropertyChanged
         await Button.ScaleTo(1.05, 250);
         await Button.ScaleTo(1, 250);
 
+        await movingImage.RotateTo(5, 100, Easing.SinInOut);
+        await movingImage.RotateTo(0, 100, Easing.SinInOut);
+
         var dataStore = DependencyService.Get<IDataStore<Creature>>();
         Creature myCreaturePet = await dataStore.ReadItem();
 

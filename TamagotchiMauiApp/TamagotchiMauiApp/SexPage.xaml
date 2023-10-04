@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TamagotchiMauiApp.SexPage"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
-             Background="#F693AD"
+             BackgroundImageSource="bg_sex.png"
              >
 
     <FlexLayout 
@@ -28,9 +28,10 @@
         />
         
         <Image
-                Source="monkey_sexy.png"
-                HeightRequest="250"
-                HorizontalOptions="Center" 
+            x:Name="movingImage"
+            Source="monkey_sexy.png"
+            HeightRequest="250"
+            HorizontalOptions="Center" 
         />
 
         <ImageButton

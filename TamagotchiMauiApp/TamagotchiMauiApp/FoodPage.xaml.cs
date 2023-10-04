@@ -18,9 +18,9 @@ public partial class FoodPage : ContentPage
 
 		BindingContext = this;
         InitializeComponent();
-	}
+    }
 
-	private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
+    private async void Timer_Elapsed(object sender, ElapsedEventArgs e)
 	{
 		var dataStore = DependencyService.Get<IDataStore<Creature>>();
 		Creature myCreaturePet = await dataStore.ReadItem();
@@ -44,6 +44,10 @@ public partial class FoodPage : ContentPage
         var Button = (ImageButton)sender;
         await Button.ScaleTo(1.05, 250);
         await Button.ScaleTo(1, 250);
+
+        await movingImage.RotateTo(-8, 100, Easing.SinInOut);
+        await movingImage.RotateTo(8, 100, Easing.SinInOut);
+        await movingImage.RotateTo(0, 100, Easing.SinInOut);
 
         var dataStore = DependencyService.Get<IDataStore<Creature>>();
         Creature myCreaturePet = await dataStore.ReadItem();

@@ -3,10 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tamagotchi="clr-namespace:TamagotchiMauiApp"
              x:Class="TamagotchiMauiApp.MainPage"
-             BackgroundColor="MediumPurple"
+             BackgroundImageSource="bg_home.png"
              >
 
-    <!-- BackgroundImageSource="bg_home.png" -->
     <FlexLayout 
          Direction="Column"
          AlignItems="Center"
@@ -19,7 +18,7 @@
              FontSize="52"
              FontFamily="DeputyJack"
              HorizontalOptions="Center" 
-             TextColor="White"
+             TextColor="Black"
          />
 
          <Label
@@ -27,7 +26,7 @@
              FontSize="40"
              FontFamily="DeputyJack"
              HorizontalOptions="Center" 
-             TextColor="white"
+             TextColor="Black"
          />
 
          <Entry
@@ -45,6 +44,7 @@
          />
 
          <Image
+             x:Name="movingImage"
              Source="monkey_idle.png"
              IsVisible="{Binding IsMonkeyVisible}"
              HeightRequest="250"
@@ -54,9 +54,9 @@
         <ImageButton
              Source="button_delete.png"
              Clicked="ClearPetData"
-             HorizontalOptions="Center"
-             HeightRequest="60"
-             WidthRequest="60"
+             HorizontalOptions="FillAndExpand"
+             HeightRequest="100"
+             WidthRequest="200"
              Aspect="AspectFit"
          />
 
