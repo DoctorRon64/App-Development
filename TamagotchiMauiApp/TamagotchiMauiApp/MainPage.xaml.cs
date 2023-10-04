@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maui.Controls;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Net;
 using System.Timers;
 using static System.Net.Mime.MediaTypeNames;
@@ -22,8 +23,7 @@ namespace TamagotchiMauiApp
             Stimulated = 0f,
 		};
 		public bool IsEntryVisible { get; set; } = true;
-		public bool IsMonkeyVisible { get; set; } = false;
-
+        public bool IsMonkeyVisible { get; set; } = false;
         public string PetNameText { get; set; } = null;
 
         public MainPage()
@@ -31,6 +31,7 @@ namespace TamagotchiMauiApp
             BindingContext = this;
             InitializeComponent();
             AnimateHead();
+
         }
 
         protected override async void OnAppearing()
@@ -40,14 +41,15 @@ namespace TamagotchiMauiApp
 			
 			if (myCreaturePet != null )
 			{
-				IsEntryVisible = false;
-				IsEntryVisible = false;
+                DeleteButton.IsEnabled = true;
+                IsEntryVisible = false;
                 IsMonkeyVisible = true;
                 PetNameText = $"{myCreaturePet.Name}";
             }
             else
 			{
-				IsEntryVisible = true;
+                DeleteButton.IsEnabled = false;
+                IsEntryVisible = true;
                 IsMonkeyVisible = false;
             }
 
@@ -76,6 +78,7 @@ namespace TamagotchiMauiApp
 
             var result = dataStore.CreateItem(myCreaturePet);
 
+            DeleteButton.IsEnabled = true;
             IsEntryVisible = false;
             IsMonkeyVisible = true;
             PetNameText = $"{myCreaturePet.Name}";
@@ -83,7 +86,7 @@ namespace TamagotchiMauiApp
 
         Creature CreateCreature(string name, string username)
 		{
-            float defaultValue = 40f;
+            float defaultValue = 5f;
 
             Creature myCreaturePet = new Creature
 			{
@@ -102,16 +105,34 @@ namespace TamagotchiMauiApp
 
         void ClearPetData(object sender, EventArgs e)
         {
-            var Button = (ImageButton)sender;
-            Button.ScaleTo(1.05, 250);
-            Button.ScaleTo(1, 250);
-
-            var dataStore = DependencyService.Get<IDataStore<Creature>>();
-            var result = dataStore.DeleteItem(myCreaturePet);
-
-            PetNameText = null;
-            IsEntryVisible = true;
-            IsMonkeyVisible = false;
+            ClearPetDataAsync();
         }
+
+        private async void ClearPetDataAsync()
+        {
+            var dataStore = DependencyService.Get<IDataStore<Creature>>();
+
+            if (myCreaturePet != null)
+            {
+                DeleteButton.IsEnabled = false;
+
+                bool result = await dataStore.DeleteItem(myCreaturePet);
+
+                DeleteButton.IsEnabled = true;
+
+                if (result)
+                {
+                    DeleteButton.IsEnabled = false;
+                    PetNameText = null;
+                    IsEntryVisible = true;
+                    IsMonkeyVisible = false;
+                }
+                else
+                {
+                    Debug.WriteLine("Failed to delete the pet.");
+                }
+            }
+        }
+
     }
 }

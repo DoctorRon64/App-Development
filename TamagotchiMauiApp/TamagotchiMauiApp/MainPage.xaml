@@ -22,7 +22,7 @@
          />
 
          <Label
-             Text="{Binding PetNameText, Mode=OneWay}"
+             Text="{Binding PetNameText, Mode=TwoWay}"
              FontSize="40"
              FontFamily="DeputyJack"
              HorizontalOptions="Center" 
@@ -38,30 +38,31 @@
              BackgroundColor="LightGray"
              WidthRequest="350"
              MaxLength="30"
-             Text="{Binding PetNameText}" 
+             Text="{Binding PetNameText, Mode=TwoWay}" 
              Completed="OnEntryCompleted" 
-             IsVisible="{Binding IsEntryVisible}"
+             IsVisible="{Binding IsEntryVisible, Mode=TwoWay}"
          />
 
          <Image
              x:Name="movingImage"
              Source="monkey_idle.png"
-             IsVisible="{Binding IsMonkeyVisible}"
+             IsVisible="{Binding IsMonkeyVisible, Mode=TwoWay}"
              HeightRequest="250"
              HorizontalOptions="Center" 
          />
 
         <ImageButton
-             Source="button_delete.png"
-             Clicked="ClearPetData"
-             HorizontalOptions="FillAndExpand"
-             HeightRequest="100"
-             WidthRequest="200"
-             Aspect="AspectFit"
+            x:Name="DeleteButton"
+            Source="button_delete.png"
+            Clicked="ClearPetData"
+            HorizontalOptions="FillAndExpand"
+            HeightRequest="90"
+            WidthRequest="190"
+            Aspect="AspectFit"
          />
 
         <tamagotchi:ButtonBrowseContentView 
-             IsVisible="{Binding IsMonkeyVisible}"
+             IsVisible="{Binding IsMonkeyVisible, Mode=TwoWay}"
             />
         <tamagotchi:TimerContentView />
      </FlexLayout>

@@ -27,7 +27,7 @@ namespace TamagotchiMauiApp
         {
             var Timer = new System.Timers.Timer()
             {
-                Interval = 1000 - Preferences.Get("TimerOfset", 0f),
+                Interval = 1000,
                 AutoReset = true,
             };
             Timer.Elapsed += Timer_Elapsed;

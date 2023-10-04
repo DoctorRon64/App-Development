@@ -2,9 +2,6 @@
 {
     public partial class App : Application
     {
-        private DateTime appResumeTime;
-        private TimeSpan timeAway;
-
         public App()
         {
             DependencyService.RegisterSingleton<IDataStore<Creature>>(new RemoteDataStore());
